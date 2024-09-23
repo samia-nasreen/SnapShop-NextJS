@@ -1,7 +1,9 @@
-import Image from "next/image";
-import Button from "@/components/UI/Button";
-import TimerCircle from "@/components/UI/TimerCircle";
-import useCountdown from "@/hooks/useCountdown";
+'use client';
+
+import Image from 'next/image';
+import Button from '@/components/UI/Button';
+import TimerCircle from '@/components/UI/TimerCircle';
+import useCountdown from '@/hooks/useCountdown';
 
 const BuyNowSection: React.FC = () => {
   const { days, hours, minutes, seconds } = useCountdown({
@@ -44,6 +46,8 @@ const BuyNowSection: React.FC = () => {
         <Image
           src="/assets/jbl.jpeg"
           alt="Banner"
+          width={800}
+          height={800}
           className="w-full h-full object-cover"
         />
       </div>

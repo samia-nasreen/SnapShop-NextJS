@@ -1,5 +1,5 @@
-import React from "react";
-import { UseFormRegisterReturn } from "react-hook-form";
+import React from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 
 interface PaymentMethodProps {
   id: string;
@@ -16,7 +16,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
   label,
   register,
   defaultChecked = false,
-  className = "",
+  className = '',
 }) => {
   return (
     <div className={`flex items-center ${className}`}>
@@ -25,7 +25,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
         id={id}
         {...register}
         value={value}
-        className="appearance-none w-6 h-6 mr-2 border-[1.5px] border-black checked:bg-black checked:ring-transparent focus:ring-0"
+        className="appearance-none w-5 h-5 mr-2 border-[1.5px] border-black checked:bg-gray-600 rounded-full checked:border-2"
         defaultChecked={defaultChecked}
       />
       <label htmlFor={id} className="ml-2">

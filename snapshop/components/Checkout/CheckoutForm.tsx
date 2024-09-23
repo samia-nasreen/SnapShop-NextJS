@@ -1,9 +1,9 @@
-import RoundedInput from "@/components/UI/RoundedInput";
+import RoundedInput from '@/components/UI/RoundedInput';
 import {
   FieldErrors,
   UseFormRegister,
   UseFormHandleSubmit,
-} from "react-hook-form";
+} from 'react-hook-form';
 
 interface CheckoutFormValues {
   firstName: string;
@@ -81,7 +81,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         <input
           type="checkbox"
           id="saveInfo"
-          className="mr-4 h-6 w-6 appearance-none border-[1.5px] border-zinc-300 rounded-sm checked:bg-red-500 checked:border-red-500 checked:icon-white focus:ring-0"
+          className="mr-4 h-6 w-6 border-[1.5px] border-zinc-300 rounded-sm"
         />
         <label htmlFor="saveInfo" className="text-black">
           Save this information for faster check-out next time
