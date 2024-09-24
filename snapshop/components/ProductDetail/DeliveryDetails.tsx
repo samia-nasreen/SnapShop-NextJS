@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 const DeliveryDetails: React.FC = () => {
   return (
@@ -8,6 +8,8 @@ const DeliveryDetails: React.FC = () => {
         <Image
           src="/assets/delivery_icon.svg"
           alt="Free Delivery Icon"
+          width={32}
+          height={32}
           className="w-6 md:w-8 h-7 md:h-8 mr-4"
         />
         <div>
@@ -26,6 +28,8 @@ const DeliveryDetails: React.FC = () => {
         <Image
           src="/assets/return_icon.svg"
           alt="Return Delivery Icon"
+          width={32}
+          height={32}
           className="w-6 md:w-8 h-7 md:h-8 mr-4"
         />
         <div>
@@ -33,7 +37,7 @@ const DeliveryDetails: React.FC = () => {
             Return Delivery
           </h3>
           <p className="text-xs font-medium">
-            Free 30 Days Delivery Returns.{" "}
+            Free 30 Days Delivery Returns.{' '}
             <Link href="#" className="underline underline-offset-1">
               Details
             </Link>

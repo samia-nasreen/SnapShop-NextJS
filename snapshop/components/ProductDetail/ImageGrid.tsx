@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 interface ImageGridProps {
   image: string;
@@ -17,6 +17,8 @@ const ImageGrid: React.FC<ImageGridProps> = ({ image, title }) => {
             <Image
               src={image}
               alt={title}
+              width={200}
+              height={200}
               className="w-full h-full object-contain rounded-sm shadow-md p-6"
             />
           </div>
@@ -26,6 +28,8 @@ const ImageGrid: React.FC<ImageGridProps> = ({ image, title }) => {
         <Image
           src={image}
           alt={title}
+          width={200}
+          height={200}
           className="w-full h-full object-contain rounded-sm shadow-md p-12"
         />
       </div>
