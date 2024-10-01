@@ -1,10 +1,11 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faApple } from "@fortawesome/free-brands-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { sliderImages as images } from "@/data/sliderImages";
+import { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faApple } from '@fortawesome/free-brands-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { sliderImages as images } from '@/data/sliderImages';
+import Image from 'next/image';
 
 const SliderCard = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -48,9 +49,11 @@ const SliderCard = () => {
         </a>
       </div>
       <div className="w-full md:w-2/3 h-auto md:h-full">
-        <img
+        <Image
           src={images[currentIndex]}
           alt="Slider"
+          width={1000}
+          height={1000}
           className="w-full h-3/4 mt-12 md:mt-0 md:h-full object-cover"
         />
       </div>
@@ -61,8 +64,8 @@ const SliderCard = () => {
             onClick={() => handleDotClick(index)}
             className={`w-2 h-2 md:w-3 md:h-3 rounded-full cursor-pointer ${
               index === currentIndex
-                ? "bg-red-500 border-[1.5px] border-white"
-                : "bg-gray-300 hover:bg-red-300"
+                ? 'bg-red-500 border-[1.5px] border-white'
+                : 'bg-gray-300 hover:bg-red-300'
             }`}
           />
         ))}

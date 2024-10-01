@@ -1,17 +1,18 @@
-"use client";
+'use client';
 
-import { useSelector, useDispatch } from "react-redux";
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { checkoutSchema } from "@/schemas/checkoutSchema";
-import { ordersActions } from "@/store/orders";
-import { cartActions } from "@/store/cart";
-import CartSummary from "@/components/Checkout/CartSummary";
-import CheckoutForm from "@/components/Checkout/CheckoutForm";
-import Heading from "@/components/UI/Heading";
-import Breadcrumb from "@/components/UI/Breadcrumb";
-import { toast } from "react-toastify";
+import { useSelector, useDispatch } from 'react-redux';
+import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { checkoutSchema } from '@/schemas/checkoutSchema';
+import { ordersActions } from '@/store/orders';
+import { cartActions } from '@/store/cart';
+import CartSummary from '@/components/Checkout/CartSummary';
+import CheckoutForm from '@/components/Checkout/CheckoutForm';
+import Heading from '@/components/UI/Heading';
+import Breadcrumb from '@/components/UI/Breadcrumb';
+import { toast } from 'react-toastify';
+import { confirmOrder } from '@/actions';
 
 const Checkout = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -27,25 +28,36 @@ const Checkout = () => {
     resolver: yupResolver(checkoutSchema),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const orderDetails = {
       ...data,
-      paymentMethod: data.paymentMethod || "Cash on delivery",
+      paymentMethod: data.paymentMethod || 'Cash on delivery',
       cartItems,
       totalAmount,
     };
 
-    dispatch(ordersActions.placeOrder(orderDetails));
-    dispatch(cartActions.clearCart());
-    console.log(data);
-    toast.success("Your order has been placed");
-    router.push("/");
+    const formData = new FormData();
+    Object.keys(orderDetails).forEach((key) => {
+      formData.append(key, orderDetails[key]);
+    });
+
+    const result = await confirmOrder(formData);
+
+    if (result.errors) {
+      console.error(result.errors);
+      toast.error(result.errors._form.join(', '));
+    } else {
+      dispatch(ordersActions.placeOrder(orderDetails));
+      dispatch(cartActions.clearCart());
+      toast.success('Your order has been placed');
+      router.push('/');
+    }
   };
 
   return (
     <div className="container mx-auto px-8 pb-32 grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div className="lg:pr-24">
-        <Breadcrumb parts={["Account", "My Account", "Cart", "Checkout"]} />
+        <Breadcrumb parts={['Account', 'My Account', 'Cart', 'Checkout']} />
         <Heading text="Billing Details" />
         <CheckoutForm
           handleSubmit={handleSubmit}
