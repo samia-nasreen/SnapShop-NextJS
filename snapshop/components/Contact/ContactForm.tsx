@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import Button from "@/components/UI/Button";
-import RoundedInput from "@/components/UI/RoundedInput";
-import { toast } from "react-toastify";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { contactSchema } from "@/schemas/contactSchema";
+import { SubmitHandler, useForm } from 'react-hook-form';
+import Button from '@/components/UI/Button';
+import RoundedInput from '@/components/UI/RoundedInput';
+import { toast } from 'react-toastify';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { contactSchema } from '@/schemas/contactSchema';
+import { sendContactMessage } from '@/actions';
 
 interface ContactFormValues {
   name: string;
@@ -25,16 +25,22 @@ const ContactForm: React.FC = () => {
     resolver: yupResolver(contactSchema),
   });
 
-  const onSubmit: SubmitHandler<ContactFormValues> = (data) => {
-    console.log(data);
-    toast.success("Message sent successfully");
+  const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('phone', data.phone);
+    formData.append('message', data.message);
+
+    await sendContactMessage(formData);
+    toast.success('Message sent successfully');
     reset();
   };
 
   return (
     <div
       className="bg-white rounded-md px-8 py-12 w-full md:w-2/3"
-      style={{ boxShadow: "0px 0px 8px 2px rgba(0, 0, 0, 0.05)" }}
+      style={{ boxShadow: '0px 0px 8px 2px rgba(0, 0, 0, 0.05)' }}
     >
       <form
         className="flex flex-col space-y-4"
@@ -68,7 +74,7 @@ const ContactForm: React.FC = () => {
           placeholder="Your Message"
           rows={8}
           className="w-full p-3 border border-white bg-stone-100 rounded"
-          {...register("message", { required: true })}
+          {...register('message', { required: true })}
         />
         {errors.message && (
           <p className="text-red-500 text-sm">Message is required</p>
