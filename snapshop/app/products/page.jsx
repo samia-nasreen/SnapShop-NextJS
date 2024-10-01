@@ -1,4 +1,5 @@
 import ProductsGrid from '@/components/UI/ProductsGrid';
+import { notFound } from 'next/navigation';
 
 export default async function AllProductsPage() {
   let products = [];
@@ -25,6 +26,10 @@ export default async function AllProductsPage() {
     }));
   } catch (err) {
     error = err.message;
+  }
+
+  if (!products.length) {
+    notFound();
   }
 
   return (

@@ -1,90 +1,60 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import ProductsGrid from '@/components/UI/ProductsGrid';
-import GridSkeleton from '@/components/UI/GridSkeleton';
-import ReactPaginate from 'react-paginate';
-import { useParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import CategoryPanel from '@/components/Home/SliderSection/CategoryPanel';
 import RedSubHeading from '@/components/UI/RedSubHeading';
 
-const PRODUCTS_PER_PAGE = 8;
-
-const CategoryPage = () => {
-  const { category } = useParams();
+const CategoryPage = async ({ params }) => {
+  const { category } = params;
   const decodedCategory = decodeURIComponent(category);
-  const [currentPage, setCurrentPage] = useState(0);
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(`/api/products/category/${category}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch products');
-        }
-        const data = await response.json();
-        setData(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  let products = [];
+  let error = null;
 
-    fetchProducts();
-  }, [category]);
+  try {
+    const response = await fetch(
+      `https://fakestoreapi.com/products/category/${category}`
+    );
+    if (!response.ok) {
+      throw new Error('Failed to fetch products');
+    }
+    const fetchedProducts = await response.json();
 
-  const handlePageChange = ({ selected }) => {
-    setCurrentPage(selected);
-  };
+    products = fetchedProducts.map((product) => ({
+      id: product.id,
+      name: product.title,
+      image: product.image,
+      discount: Math.floor(Math.random() * 50) + 10,
+      price: product.price,
+      originalPrice: (product.price * (1 + Math.random() * 0.5)).toFixed(2),
+      category: product.category,
+      rating: product.rating.rate,
+      ratingCount: product.rating.count,
+      description: product.description,
+    }));
+  } catch (err) {
+    error = err.message;
+  }
 
-  const paginatedData = data
-    ? data.slice(
-        currentPage * PRODUCTS_PER_PAGE,
-        (currentPage + 1) * PRODUCTS_PER_PAGE
-      )
-    : [];
+  if (!products.length) {
+    notFound();
+  }
 
   return (
-    <div className="max-w-7xl min-h-screen mx-auto pt-4 md:pt-8 pb-20 md:pb-28 px-8">
-      <div className="flex">
-        <div className="hidden md:block w-1/4 -ml-4 mt-2">
+    <div className="max-w-7xl min-h-screen mx-auto pt-4 md:pt-8 pb-20 md:pb-28 px-4 md:px-8">
+      <div className="flex flex-col md:flex-row">
+        <div className="hidden md:flex w-1/4 border-r border-gray-300 pr-4">
           <CategoryPanel />
         </div>
-
-        <div className="border-r-[1px] border-gray-300 hidden md:block absolute top-36 bottom-48 left-1/4" />
-
-        <div className="w-full md:w-3/4">
-          <div className="md:hidden">
+        <div className="w-full md:w-3/4 flex flex-col pl-4">
+          <div className="md:hidden mb-4">
             <RedSubHeading subHeading={decodedCategory} />
           </div>
-          {isLoading && <GridSkeleton lines={5} />}
-          {!isLoading && <ProductsGrid products={paginatedData} />}
           {error && (
-            <p className="text-red-500">Error occurred: {error.message}</p>
+            <p className="text-red-500 mb-4">Error occurred: {error}</p>
           )}
+          {!error && <ProductsGrid products={products} />}
         </div>
       </div>
-      {!isLoading && !error && data && (
-        <ReactPaginate
-          pageCount={Math.ceil(data.length / PRODUCTS_PER_PAGE)}
-          onPageChange={handlePageChange}
-          containerClassName="flex justify-center mt-6 text-lg font-medium"
-          pageClassName="mx-1"
-          pageLinkClassName="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-300 transition"
-          activeClassName="bg-blue-500 text-white"
-          activeLinkClassName="bg-blue-500 text-white hover:bg-blue-500"
-          previousLabel="<"
-          previousClassName="mx-1"
-          previousLinkClassName="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-300 transition"
-          nextLabel=">"
-          nextClassName="mx-1"
-          nextLinkClassName="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-300 transition"
-        />
-      )}
     </div>
   );
 };
