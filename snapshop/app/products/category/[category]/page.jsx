@@ -1,22 +1,41 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ProductsGrid from "@/components/UI/ProductsGrid";
-import GridSkeleton from "@/components/UI/GridSkeleton";
-import { useGetCategoryProductsQuery } from "@/api/productsApi";
-import ReactPaginate from "react-paginate";
-import { useParams } from "next/navigation";
-import CategoryPanel from "@/components/Home/SliderSection/CategoryPanel";
-import RedSubHeading from "@/components/UI/RedSubHeading";
+import { useState, useEffect } from 'react';
+import ProductsGrid from '@/components/UI/ProductsGrid';
+import GridSkeleton from '@/components/UI/GridSkeleton';
+import ReactPaginate from 'react-paginate';
+import { useParams } from 'next/navigation';
+import CategoryPanel from '@/components/Home/SliderSection/CategoryPanel';
+import RedSubHeading from '@/components/UI/RedSubHeading';
 
 const PRODUCTS_PER_PAGE = 8;
 
 const CategoryPage = () => {
   const { category } = useParams();
   const decodedCategory = decodeURIComponent(category);
-  const { data, error, isError, isLoading } =
-    useGetCategoryProductsQuery(category);
   const [currentPage, setCurrentPage] = useState(0);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`/api/products/category/${category}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        const data = await response.json();
+        setData(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [category]);
 
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
@@ -44,12 +63,12 @@ const CategoryPage = () => {
           </div>
           {isLoading && <GridSkeleton lines={5} />}
           {!isLoading && <ProductsGrid products={paginatedData} />}
-          {isError && (
+          {error && (
             <p className="text-red-500">Error occurred: {error.message}</p>
           )}
         </div>
       </div>
-      {!isLoading && !isError && data && (
+      {!isLoading && !error && data && (
         <ReactPaginate
           pageCount={Math.ceil(data.length / PRODUCTS_PER_PAGE)}
           onPageChange={handlePageChange}

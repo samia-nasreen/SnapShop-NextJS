@@ -1,11 +1,11 @@
-import Image from "next/image";
-import qrCode from "@/public/assets/qr_code.png";
-import googlePlay from "@/public/assets/google_play.png";
-import appStore from "@/public/assets/app_store.png";
-import facebookIcon from "@/public/assets/facebook_icon.png";
-import twitterIcon from "@/public/assets/twitter_icon.png";
-import instagramIcon from "@/public/assets/instagram_icon.png";
-import linkedInIcon from "@/public/assets/linkedin_icon.png";
+import Image from 'next/image';
+import qrCode from '@/public/assets/qr_code.png';
+import googlePlay from '@/public/assets/google_play.png';
+import appStore from '@/public/assets/app_store.png';
+import facebookIcon from '@/public/assets/facebook_icon.png';
+import twitterIcon from '@/public/assets/twitter_icon.png';
+import instagramIcon from '@/public/assets/instagram_icon.png';
+import linkedInIcon from '@/public/assets/linkedin_icon.png';
 
 const DownloadApp = () => {
   return (
@@ -20,7 +20,7 @@ const DownloadApp = () => {
           alt="QR Code"
           width={80}
           height={80}
-          className="mb-2 w-20 mr-2"
+          className="mb-2 w-20 h-auto mr-2"
         />
         <div>
           <Image
@@ -28,14 +28,14 @@ const DownloadApp = () => {
             alt="Google Play"
             width={100}
             height={40}
-            className="mb-2 h-9"
+            className="mb-2 h-9 w-auto"
           />
           <Image
             src={appStore}
             alt="App Store"
             width={100}
             height={40}
-            className="mb-2 h-9"
+            className="mb-2 h-9 w-auto"
           />
         </div>
       </div>

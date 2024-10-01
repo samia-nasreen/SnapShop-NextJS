@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { AiOutlineUser } from "react-icons/ai";
-import { BiLogOut } from "react-icons/bi";
-import { FaRegStar } from "react-icons/fa";
-import { LuShoppingBag } from "react-icons/lu";
-import { MdOutlineCancel } from "react-icons/md";
-import MenuItem from "./MenuItem";
-import React from "react";
+import { AiOutlineUser } from 'react-icons/ai';
+import { BiLogOut } from 'react-icons/bi';
+import { FaRegStar } from 'react-icons/fa';
+import { LuShoppingBag } from 'react-icons/lu';
+import { MdOutlineCancel } from 'react-icons/md';
+import MenuItem from './MenuItem';
+import React from 'react';
 
 interface AccountMenuOptionsProps {
   closeDropdown: () => void;
@@ -28,19 +28,19 @@ const AccountMenuOptions: React.FC<AccountMenuOptionsProps> = ({
       <MenuItem
         icon={LuShoppingBag}
         text="My Orders"
-        href="#orders"
+        href="/orders"
         onClick={closeDropdown}
       />
       <MenuItem
         icon={MdOutlineCancel}
         text="My Cancellations"
-        href="#cancellations"
+        href="/cancellations"
         onClick={closeDropdown}
       />
       <MenuItem
         icon={FaRegStar}
         text="My Reviews"
-        href="#reviews"
+        href="/reviews"
         onClick={closeDropdown}
       />
       <div

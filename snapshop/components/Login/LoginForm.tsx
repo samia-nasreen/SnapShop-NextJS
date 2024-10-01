@@ -1,17 +1,18 @@
-"use client";
+'use client';
 
-import { useForm, SubmitHandler } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { loginSchema } from "@/schemas/authSchemas";
-import Button from "@/components/UI/Button";
-import ForgotPasswordLink from "./ForgotPasswordLink";
-import LineInput from "@/components/UI/LineInput";
-import { jwtDecode } from "jwt-decode";
-import { authActions } from "@/store/auth";
-import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
-import { useLoginMutation } from "@/api/authApi";
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { loginSchema } from '@/schemas/authSchemas';
+import Button from '@/components/UI/Button';
+import ForgotPasswordLink from './ForgotPasswordLink';
+import LineInput from '@/components/UI/LineInput';
+import { jwtDecode } from 'jwt-decode';
+import { authActions } from '@/store/auth';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { login } from '@/actions';
+import { useState } from 'react';
 
 interface LoginFormValues {
   username: string;
@@ -27,24 +28,35 @@ const LoginForm: React.FC = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const [login, { isError }] = useLoginMutation();
   const router = useRouter();
   const dispatch = useDispatch();
+  const [isError, setIsError] = useState(false);
 
   const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
-    toast.info("Logging in...");
+    toast.info('Logging in...');
 
-    const result = await login(data).unwrap();
-    const token = result.token;
-    const decodedToken = jwtDecode(token);
-    const userId = decodedToken?.sub ? parseInt(decodedToken.sub, 10) : null;
+    const formData = new FormData();
+    formData.append('username', data.username);
+    formData.append('password', data.password);
 
-    if (userId !== null) {
-      dispatch(authActions.login({ userId }));
-      toast.success("Logged in sucessfully");
-      router.push("/");
-    } else {
-      toast.error("Login failed");
+    const result = await login(formData);
+
+    if (result.errors) {
+      setIsError(true);
+      toast.error('Login failed');
+    } else if (result.token) {
+      const token = result.token;
+      const decodedToken = jwtDecode(token);
+      const userId = decodedToken?.sub ? parseInt(decodedToken.sub, 10) : null;
+
+      if (userId !== null) {
+        dispatch(authActions.login({ userId }));
+        toast.success('Logged in successfully');
+        router.push('/');
+      } else {
+        setIsError(true);
+        toast.error('Login failed');
+      }
     }
   };
 

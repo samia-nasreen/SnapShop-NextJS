@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from 'react';
 import {
   AiOutlineHeart,
   AiOutlineShoppingCart,
   AiOutlineMenu,
-} from "react-icons/ai";
-import { useSelector } from "react-redux";
-import NavItem from "./components/NavItem";
-import IconWithBadge from "./components/IconWithBadge";
-import SearchBar from "./components/SearchBar";
-import SideBar from "./components/SideBar";
-import AccountMenu from "./components/AccountMenu/AccountMenu";
-import Link from "next/link";
+} from 'react-icons/ai';
+import { useSelector } from 'react-redux';
+import NavItem from './components/NavItem';
+import IconWithBadge from './components/IconWithBadge';
+import SearchBar from './components/SearchBar';
+import SideBar from './components/SideBar';
+import AccountMenu from './components/AccountMenu/AccountMenu';
+import Link from 'next/link';
 
 const NavBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -32,12 +32,12 @@ const NavBar = () => {
     };
 
     if (isSidebarOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     } else {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     }
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isSidebarOpen]);
 
@@ -47,7 +47,7 @@ const NavBar = () => {
         <div className="md:text-2xl font-bold text-xl">
           <Link href="/">SnapShop</Link>
         </div>
-        <ul className="hidden md:flex space-x-12">
+        <ul className="hidden md:flex space-x-8 xl:space-x-12 text-sm xl:text-base">
           <NavItem to="/">Home</NavItem>
           <NavItem to="/contact">Contact</NavItem>
           <NavItem to="/about">About</NavItem>

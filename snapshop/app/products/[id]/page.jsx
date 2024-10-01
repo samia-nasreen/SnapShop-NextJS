@@ -1,15 +1,36 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import ProductDetail from '@/components/ProductDetail/ProductDetail';
 import RelatedItems from '@/components/ProductDetail/RelatedItems';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import ProductDetailSkeleton from '@/components/ProductDetail/ProductDetailSkeleton';
-import { useGetProductQuery } from '@/api/productsApi';
 
 const ProductDetailPage = () => {
   const { id } = useParams();
-  const { data: product, error, isError, isLoading } = useGetProductQuery(id);
+  const [product, setProduct] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`/api/products/${id}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        const products = await response.json();
+        setProduct(products);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [id]);
 
   return (
     <div className="px-1 md:px-28">
@@ -28,7 +49,7 @@ const ProductDetailPage = () => {
           <RelatedItems category={product.category} />
         </>
       )}
-      {isError && <p>Error occured: {error}</p>}
+      {error && <p>Error occured: {error}</p>}
     </div>
   );
 };

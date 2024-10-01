@@ -1,8 +1,9 @@
-import React from "react";
-import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
-import PasswordChange from "./PasswordChange";
-import Button from "@/components/UI/Button";
-import RoundedInput from "@/components/UI/RoundedInput";
+import React from 'react';
+import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
+import PasswordChange from './PasswordChange';
+import Button from '@/components/UI/Button';
+import RoundedInput from '@/components/UI/RoundedInput';
+import capitalizeFirstLetter from '@/utils/capitalizeFirstLetter';
 
 interface UserData {
   name: {
@@ -21,14 +22,9 @@ interface UserData {
 interface ProfileFormProps {
   userData: UserData;
   onSubmit: SubmitHandler<FieldValues>;
-  capitalizeFirstLetter: (text: string) => string;
 }
 
-const ProfileForm: React.FC<ProfileFormProps> = ({
-  userData,
-  onSubmit,
-  capitalizeFirstLetter,
-}) => {
+const ProfileForm: React.FC<ProfileFormProps> = ({ userData, onSubmit }) => {
   const {
     register,
     handleSubmit,

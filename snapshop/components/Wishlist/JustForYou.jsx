@@ -1,23 +1,39 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import RedSubHeading from "@/components/UI/RedSubHeading";
-import TransparentButton from "@/components/UI/TransparentButton";
-import ProductsGrid from "@/components/UI/ProductsGrid";
-import GridSkeleton from "@/components/UI/GridSkeleton";
-import { useGetAllProductsQuery } from "@/api/productsApi";
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import RedSubHeading from '@/components/UI/RedSubHeading';
+import TransparentButton from '@/components/UI/TransparentButton';
+import ProductsGrid from '@/components/UI/ProductsGrid';
+import GridSkeleton from '@/components/UI/GridSkeleton';
 
 const JustForYou = () => {
   const router = useRouter();
-  const {
-    data: products,
-    error,
-    isError,
-    isLoading,
-  } = useGetAllProductsQuery({ randomize: true, count: 4 });
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('/api/products?randomize=true&count=4');
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        const data = await response.json();
+        setProducts(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleSeeAllButton = () => {
-    router.push("/products");
+    router.push('/products');
   };
 
   return (
@@ -28,7 +44,7 @@ const JustForYou = () => {
       </div>
       {isLoading && <GridSkeleton />}
       {!isLoading && <ProductsGrid products={products} />}
-      {isError && <p>Error occured: {error}</p>}
+      {error && <p>Error occured: {error}</p>}
     </div>
   );
 };

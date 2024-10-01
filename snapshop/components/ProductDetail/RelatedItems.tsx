@@ -1,20 +1,43 @@
-"use client";
+'use client';
 
-import ProductsGrid from "@/components/UI/ProductsGrid";
-import RedSubHeading from "@/components/UI/RedSubHeading";
-import GridSkeleton from "@/components/UI/GridSkeleton";
-import { useGetRelatedProductsQuery } from "@/api/productsApi";
+import { useState, useEffect } from 'react';
+import ProductsGrid from '@/components/UI/ProductsGrid';
+import RedSubHeading from '@/components/UI/RedSubHeading';
+import GridSkeleton from '@/components/UI/GridSkeleton';
 
 interface RelatedItemsProps {
   category: string;
 }
 
 const RelatedItems: React.FC<RelatedItemsProps> = ({ category }) => {
-  const {
-    data: relatedProducts,
-    isError,
-    isLoading,
-  } = useGetRelatedProductsQuery(category);
+  const [relatedProducts, setRelatedProducts] = useState([]);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(
+          `/api/products/category/${category}?limit=4`
+        );
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        const data = await response.json();
+        setRelatedProducts(data);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('An unknown error occurred');
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [category]);
 
   return (
     <div className="container mx-auto mt-16 mb-24 p-5">
@@ -23,7 +46,7 @@ const RelatedItems: React.FC<RelatedItemsProps> = ({ category }) => {
       </div>
       {isLoading && <GridSkeleton />}
       {!isLoading && <ProductsGrid products={relatedProducts || []} />}
-      {isError && <p>Error occured</p>}
+      {error && <p>Error occured</p>}
     </div>
   );
 };

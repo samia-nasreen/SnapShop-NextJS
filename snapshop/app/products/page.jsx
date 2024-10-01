@@ -1,20 +1,40 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ProductsGrid from "@/components/UI/ProductsGrid";
-import GridSkeleton from "@/components/UI/GridSkeleton";
-import { useGetAllProductsQuery } from "@/api/productsApi";
-import ReactPaginate from "react-paginate";
+import { useState, useEffect } from 'react';
+import ProductsGrid from '@/components/UI/ProductsGrid';
+import GridSkeleton from '@/components/UI/GridSkeleton';
+import ReactPaginate from 'react-paginate';
 
 const PRODUCTS_PER_PAGE = 8;
 
 const AllProductsPage = () => {
-  const { data, error, isError, isLoading } = useGetAllProductsQuery();
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
 
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
   };
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('/api/products');
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        const products = await response.json();
+        setData(products);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const paginatedData = data
     ? data.slice(
@@ -30,10 +50,8 @@ const AllProductsPage = () => {
       </h1>
       {isLoading && <GridSkeleton lines={5} />}
       {!isLoading && <ProductsGrid products={paginatedData} />}
-      {isError && (
-        <p className="text-red-500">Error occurred: {error.message}</p>
-      )}
-      {!isLoading && !isError && data && (
+      {error && <p className="text-red-500">Error occurred: {error.message}</p>}
+      {!isLoading && !error && data && (
         <ReactPaginate
           pageCount={Math.ceil(data.length / PRODUCTS_PER_PAGE)}
           onPageChange={handlePageChange}
