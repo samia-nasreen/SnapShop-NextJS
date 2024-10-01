@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { signUpSchema } from "@/schemas/authSchemas";
-import GoogleSignUpButton from "./GoogleSignUpButton";
-import LoginLink from "./LoginLink";
-import Button from "@/components/UI/Button";
-import LineInput from "@/components/UI/LineInput";
-import { toast } from "react-toastify";
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { signUpSchema } from '@/schemas/authSchemas';
+import GoogleSignUpButton from './GoogleSignUpButton';
+import LoginLink from './LoginLink';
+import Button from '@/components/UI/Button';
+import LineInput from '@/components/UI/LineInput';
+import { toast } from 'react-toastify';
+import { signUp } from '@/actions';
 
 interface SignUpFormValues {
   email: string;
@@ -29,9 +29,17 @@ const SignUpForm: React.FC = () => {
     resolver: yupResolver(signUpSchema),
   });
 
-  const onSubmit: SubmitHandler<SignUpFormValues> = (data) => {
-    console.log(data);
-    toast.success("Registration successful");
+  const onSubmit: SubmitHandler<SignUpFormValues> = async (data) => {
+    const formData = new FormData();
+    formData.append('email', data.email);
+    formData.append('username', data.username);
+    formData.append('password', data.password);
+    formData.append('name', data.name);
+    formData.append('address', data.address);
+    formData.append('phone', data.phone);
+
+    await signUp(formData);
+    toast.success('Registration successful');
     reset();
   };
 
