@@ -1,36 +1,42 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import { useParams } from 'next/navigation';
 import ProductDetail from '@/components/ProductDetail/ProductDetail';
 import RelatedItems from '@/components/ProductDetail/RelatedItems';
 import Breadcrumb from '@/components/UI/Breadcrumb';
-import ProductDetailSkeleton from '@/components/ProductDetail/ProductDetailSkeleton';
+import { notFound } from 'next/navigation';
 
-const ProductDetailPage = () => {
-  const { id } = useParams();
-  const [product, setProduct] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+const ProductDetailPage = async ({ params }) => {
+  const { id } = params;
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(`/api/products/${id}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch products');
-        }
-        const products = await response.json();
-        setProduct(products);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setIsLoading(false);
-      }
+  let product = null;
+  let error = null;
+
+  try {
+    const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch product');
+    }
+    const fetchedProduct = await response.json();
+
+    product = {
+      id: fetchedProduct.id,
+      name: fetchedProduct.title,
+      image: fetchedProduct.image,
+      discount: Math.floor(Math.random() * 50) + 10,
+      price: fetchedProduct.price,
+      originalPrice: (fetchedProduct.price * (1 + Math.random() * 0.5)).toFixed(
+        2
+      ),
+      category: fetchedProduct.category,
+      rating: fetchedProduct.rating.rate,
+      ratingCount: fetchedProduct.rating.count,
+      description: fetchedProduct.description,
     };
+  } catch (err) {
+    error = err.message;
+  }
 
-    fetchProducts();
-  }, [id]);
+  if (!product) {
+    notFound();
+  }
 
   return (
     <div className="px-1 md:px-28">
@@ -42,14 +48,13 @@ const ProductDetailPage = () => {
         ]}
         className="ml-4"
       />
-      {isLoading && <ProductDetailSkeleton />}
-      {!isLoading && product && (
+      {error && <p className="text-red-500">Error occurred: {error}</p>}
+      {product && (
         <>
           <ProductDetail product={product} />
           <RelatedItems category={product.category} />
         </>
       )}
-      {error && <p>Error occured: {error}</p>}
     </div>
   );
 };
