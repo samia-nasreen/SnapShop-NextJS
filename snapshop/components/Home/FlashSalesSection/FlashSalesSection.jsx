@@ -1,10 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRef } from 'react';
 import TimeRemaining from './TimeRemaining';
-import ScrollLeftButton from '@/components/UI/ScrollLeftButton';
-import ScrollRightButton from '@/components/UI/ScrollRightButton';
 import { useRouter } from 'next/navigation';
 import RedSubHeading from '@/components/UI/RedSubHeading';
 import Button from '@/components/UI/Button';
@@ -13,7 +10,6 @@ import ProductsGrid from '@/components/UI/ProductsGrid';
 import GridSkeleton from '@/components/UI/GridSkeleton';
 
 const FlashSalesSection = () => {
-  const scrollContainerRef = useRef(null);
   const router = useRouter();
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
@@ -38,22 +34,6 @@ const FlashSalesSection = () => {
     fetchProducts();
   }, []);
 
-  const scrollLeft = () => {
-    scrollContainerRef.current.scrollBy({
-      top: 0,
-      left: -300,
-      behavior: 'smooth',
-    });
-  };
-
-  const scrollRight = () => {
-    scrollContainerRef.current.scrollBy({
-      top: 0,
-      left: 300,
-      behavior: 'smooth',
-    });
-  };
-
   const handleViewAllButton = () => {
     router.push('/products');
   };
@@ -67,16 +47,8 @@ const FlashSalesSection = () => {
       </div>
       <div className="relative">
         {isLoading && <GridSkeleton />}
-        {!isLoading && (
-          <ProductsGrid
-            products={products}
-            scrollContainerRef={scrollContainerRef}
-            scroll
-          />
-        )}
+        {!isLoading && <ProductsGrid products={products} scroll />}
         {error && <p>Error occured: {error}</p>}
-        <ScrollLeftButton scrollLeft={scrollLeft} />
-        <ScrollRightButton scrollRight={scrollRight} />
       </div>
       <div className="mt-4 text-center">
         <Button text="View All Products" onClick={handleViewAllButton} />

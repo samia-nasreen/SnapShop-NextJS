@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 interface ScrollRightButtonProps {
   scrollRight: () => void;
@@ -10,7 +10,7 @@ const ScrollRightButton: React.FC<ScrollRightButtonProps> = ({
   return (
     <button
       onClick={scrollRight}
-      className="absolute -right-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+      className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
     >
       <svg
         className="w-6 h-6 text-gray-600"

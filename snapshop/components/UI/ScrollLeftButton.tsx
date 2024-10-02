@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 interface ScrollLeftButtonProps {
   scrollLeft: () => void;
@@ -8,7 +8,7 @@ const ScrollLeftButton: React.FC<ScrollLeftButtonProps> = ({ scrollLeft }) => {
   return (
     <button
       onClick={scrollLeft}
-      className="absolute -left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+      className="absolute -left-8 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
     >
       <svg
         className="w-6 h-6 text-gray-600"
