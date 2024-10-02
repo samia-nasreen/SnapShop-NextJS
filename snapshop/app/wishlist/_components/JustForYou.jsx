@@ -1,7 +1,6 @@
 import RedSubHeading from '@/components/UI/RedSubHeading';
 import TransparentButton from '@/components/UI/TransparentButton';
 import ProductsGrid from '@/components/UI/ProductsGrid';
-import GridSkeleton from '@/components/UI/GridSkeleton';
 
 const fetchProducts = async () => {
   try {
@@ -44,7 +43,6 @@ const JustForYou = async () => {
         <RedSubHeading subHeading="Just For You" />
         <TransparentButton text="See All" href="/products" />
       </div>
-      {!products && <GridSkeleton />}
       {products && <ProductsGrid products={products} />}
     </div>
   );

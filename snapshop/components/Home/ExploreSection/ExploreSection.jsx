@@ -1,8 +1,7 @@
-import RedSubHeading from '../../../components/UI/RedSubHeading';
-import Button from '../../../components/UI/Button';
-import Heading from '../../../components/UI/Heading';
-import ProductsGrid from '../../../components/UI/ProductsGrid';
-import GridSkeleton from '../../../components/UI/GridSkeleton';
+import RedSubHeading from '@/components/UI/RedSubHeading';
+import Button from '@/components/UI/Button';
+import Heading from '@/components/UI/Heading';
+import ProductsGrid from '@/components/UI/ProductsGrid';
 
 const fetchProducts = async () => {
   try {
@@ -43,11 +42,7 @@ const ExploreSection = async () => {
     <div className="explore-section mt-16 mb-12 px-4 bg-white relative">
       <RedSubHeading subHeading="Our Products" />
       <Heading text="Explore Our Products" />
-      {!products ? (
-        <GridSkeleton lines={2} />
-      ) : (
-        <ProductsGrid products={products} />
-      )}
+      {products && <ProductsGrid products={products} />}
       <div className="mt-12 text-center">
         <Button text="View All Products" href="/products" />
       </div>

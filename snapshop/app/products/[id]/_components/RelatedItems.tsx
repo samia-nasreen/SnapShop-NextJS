@@ -1,6 +1,5 @@
 import ProductsGrid from '@/components/UI/ProductsGrid';
 import RedSubHeading from '@/components/UI/RedSubHeading';
-import GridSkeleton from '@/components/UI/GridSkeleton';
 
 interface RelatedItemsProps {
   category: string;
@@ -63,7 +62,6 @@ const RelatedItems: React.FC<RelatedItemsProps> = async ({ category }) => {
       <div className="flex justify-between items-center mb-5">
         <RedSubHeading subHeading="Related Items" />
       </div>
-      {!relatedProducts && <GridSkeleton />}
       {relatedProducts && <ProductsGrid products={relatedProducts || []} />}
     </div>
   );

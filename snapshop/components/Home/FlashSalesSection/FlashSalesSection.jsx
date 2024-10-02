@@ -3,7 +3,6 @@ import RedSubHeading from '@/components/UI/RedSubHeading';
 import Button from '@/components/UI/Button';
 import Heading from '@/components/UI/Heading';
 import ProductsGrid from '@/components/UI/ProductsGrid';
-import GridSkeleton from '@/components/UI/GridSkeleton';
 
 const fetchProducts = async () => {
   try {
@@ -48,7 +47,6 @@ const FlashSalesSection = async () => {
         <TimeRemaining />
       </div>
       <div className="relative">
-        {!products && <GridSkeleton />}
         {products && <ProductsGrid products={products} scroll />}
       </div>
       <div className="mt-4 text-center">
