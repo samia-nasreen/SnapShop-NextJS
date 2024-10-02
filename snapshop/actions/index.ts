@@ -1,4 +1,5 @@
+export { signUp } from './sign-up';
 export { login } from './login';
-export { signUp } from './signUp';
+export { logout } from './logout';
 export { sendContactMessage } from './contact';
 export { confirmOrder } from './checkout';
