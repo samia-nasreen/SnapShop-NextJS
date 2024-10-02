@@ -1,53 +1,35 @@
-'use client';
-
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { cookies } from 'next/headers';
 import SideBar from '@/app/profile/_components/SideBar';
 import ProfileForm from '@/app/profile/_components/ProfileForm';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import capitalizeFirstLetter from '@/utils/capitalizeFirstLetter';
-import ProfileSkeleton from '@/app/profile/_components/ProfileSkeleton';
+import { jwtDecode } from 'jwt-decode';
 
-export default function ProfilePage() {
-  const userId = useSelector((state) => state.auth.userId);
-  const [userData, setUserData] = useState(null);
-  const [error, setError] = useState(null);
+export default async function ProfilePage() {
+  const cookieStore = cookies();
+  const token = cookieStore.get('authToken')?.value;
+  const decodedToken = jwtDecode(token);
+  const userId = decodedToken?.sub ? parseInt(decodedToken.sub, 10) : null;
+  let userData = null;
+  let error = null;
 
-  useEffect(() => {
-    if (userId) {
-      fetchUserData();
-    }
-  }, [userId]);
-
-  const fetchUserData = async () => {
+  if (userId) {
     try {
       const response = await fetch(`https://fakestoreapi.com/users/${userId}`);
       if (!response.ok) {
         throw new Error('Failed to fetch user data');
       }
-      const data = await response.json();
-      setUserData(data);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
 
-  if (!userId) {
-    return (
-      <p className="max-h-screen flex justify-center py-80">User not found!</p>
-    );
+      userData = await response.json();
+    } catch (err) {
+      error = err.message;
+    }
+  } else {
+    error = 'User not found';
   }
 
   if (error) {
-    return (
-      <p className="max-h-screen flex justify-center py-80">
-        Something went wrong!
-      </p>
-    );
-  }
-
-  if (!userData) {
-    return <ProfileSkeleton />;
+    return <p className="max-h-screen flex justify-center py-80">{error}</p>;
   }
 
   return (
@@ -66,11 +48,7 @@ export default function ProfilePage() {
         <div className="w-full flex">
           <SideBar />
           <div className="w-full md:w-3/4 pl-2 md:pl-5">
-            <ProfileForm
-              userData={userData}
-              onSubmit={(formData) => console.log(formData)}
-              capitalizeFirstLetter={capitalizeFirstLetter}
-            />
+            <ProfileForm userData={userData} />
           </div>
         </div>
       </div>

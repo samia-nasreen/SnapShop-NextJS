@@ -1,5 +1,6 @@
-import React from 'react';
-import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
+'use client';
+
+import { useForm, SubmitHandler } from 'react-hook-form';
 import PasswordChange from './PasswordChange';
 import Button from '@/components/UI/Button';
 import RoundedInput from '@/components/UI/RoundedInput';
@@ -21,15 +22,18 @@ interface UserData {
 
 interface ProfileFormProps {
   userData: UserData;
-  onSubmit: SubmitHandler<FieldValues>;
 }
 
-const ProfileForm: React.FC<ProfileFormProps> = ({ userData, onSubmit }) => {
+const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<UserData>();
+
+  const onSubmit: SubmitHandler<UserData> = (data) => {
+    console.log(data);
+  };
 
   return (
     <div className="bg-white py-10 px-10 sm:px-20 rounded shadow-[0px_0px_8px_2px_rgba(0,0,0,0.05)]">

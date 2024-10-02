@@ -50,7 +50,6 @@ const LoginForm: React.FC = () => {
       const userId = decodedToken?.sub ? parseInt(decodedToken.sub, 10) : null;
 
       if (userId !== null) {
-        sessionStorage.setItem('userId', userId.toString());
         dispatch(authActions.login({ userId }));
         toast.success('Logged in successfully');
         router.push('/');

@@ -1,5 +1,7 @@
 'use server';
 
+import { cookies } from 'next/headers';
+
 interface LoginFormState {
   errors?: {
     _form?: string[];
@@ -10,6 +12,7 @@ interface LoginFormState {
 export async function login(formData: FormData): Promise<LoginFormState> {
   const username = formData.get('username') as string;
   const password = formData.get('password') as string;
+  const cookieStore = cookies();
 
   try {
     const response = await fetch('https://fakestoreapi.com/auth/login', {
@@ -33,6 +36,7 @@ export async function login(formData: FormData): Promise<LoginFormState> {
     }
 
     const data = await response.json();
+    cookieStore.set('authToken', data.token);
     return { token: data.token };
   } catch (error: unknown) {
     if (error instanceof Error) {
