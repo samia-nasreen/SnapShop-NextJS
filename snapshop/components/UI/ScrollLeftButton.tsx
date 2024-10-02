@@ -7,6 +7,7 @@ interface ScrollLeftButtonProps {
 const ScrollLeftButton: React.FC<ScrollLeftButtonProps> = ({ scrollLeft }) => {
   return (
     <button
+      aria-label="Scroll left"
       onClick={scrollLeft}
       className="absolute -left-8 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
     >

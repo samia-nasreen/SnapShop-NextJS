@@ -9,6 +9,7 @@ const ScrollRightButton: React.FC<ScrollRightButtonProps> = ({
 }) => {
   return (
     <button
+      aria-label="Scroll right"
       onClick={scrollRight}
       className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
     >

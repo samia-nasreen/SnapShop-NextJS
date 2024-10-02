@@ -20,7 +20,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick }) => {
     >
       <Image
         src={`/assets/${category.icon}`}
-        alt={category.label}
+        alt="Category Icon"
         width={80}
         height={80}
         className="w-10 h-10 md:w-12 md:h-12 mb-2 md:mb-4"
