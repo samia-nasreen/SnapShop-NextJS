@@ -6,7 +6,6 @@ import { loginSchema } from '@/schemas/authSchemas';
 import Button from '@/components/UI/Button';
 import ForgotPasswordLink from './ForgotPasswordLink';
 import LineInput from '@/components/UI/LineInput';
-import { jwtDecode } from 'jwt-decode';
 import { authActions } from '@/store/auth';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
@@ -46,11 +45,9 @@ const LoginForm: React.FC = () => {
       toast.error('Login failed');
     } else if (result.token) {
       const token = result.token;
-      const decodedToken = jwtDecode(token);
-      const userId = decodedToken?.sub ? parseInt(decodedToken.sub, 10) : null;
 
-      if (userId !== null) {
-        dispatch(authActions.login({ userId }));
+      if (token !== null) {
+        dispatch(authActions.login());
         toast.success('Logged in successfully');
         router.push('/');
       } else {
