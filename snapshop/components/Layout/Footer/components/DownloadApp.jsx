@@ -20,7 +20,7 @@ const DownloadApp = () => {
           alt="QR Code"
           width={80}
           height={80}
-          className="mb-2 w-20 h-auto mr-2"
+          className="mb-2 w-auto h-auto mr-2"
         />
         <div>
           <Image
@@ -28,14 +28,14 @@ const DownloadApp = () => {
             alt="Google Play"
             width={100}
             height={40}
-            className="mb-2 h-9 w-auto"
+            className="mb-2 h-11 w-auto"
           />
           <Image
             src={appStore}
             alt="App Store"
             width={100}
             height={40}
-            className="mb-2 h-9 w-auto"
+            className="mb-2 h-11 w-auto"
           />
         </div>
       </div>

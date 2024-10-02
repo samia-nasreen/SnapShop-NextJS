@@ -1,5 +1,5 @@
-import JustForYou from "@/components/Wishlist/JustForYou";
-import Wishlist from "@/components/Wishlist/Wishlist";
+import JustForYou from '@/app/wishlist/_components/JustForYou';
+import Wishlist from '@/app/wishlist/_components/Wishlist';
 
 const WishlistPage = () => {
   return (

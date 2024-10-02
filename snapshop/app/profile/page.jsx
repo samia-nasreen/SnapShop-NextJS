@@ -2,11 +2,11 @@
 
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import SideBar from '@/components/Profile/SideBar';
-import ProfileForm from '@/components/Profile/ProfileForm';
+import SideBar from '@/app/profile/_components/SideBar';
+import ProfileForm from '@/app/profile/_components/ProfileForm';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import capitalizeFirstLetter from '@/utils/capitalizeFirstLetter';
-import ProfileSkeleton from '@/components/Profile/ProfileSkeleton';
+import ProfileSkeleton from '@/app/profile/_components/ProfileSkeleton';
 
 export default function ProfilePage() {
   const userId = useSelector((state) => state.auth.userId);

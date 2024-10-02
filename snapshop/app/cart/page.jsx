@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useSelector, useDispatch } from "react-redux";
-import { cartActions } from "@/store/cart";
-import InfoTable from "@/components/Cart/InfoTable";
-import Coupon from "@/components/Cart/Coupon";
-import CartTotal from "@/components/Cart/CartTotal";
-import CartActions from "@/components/Cart/CartActions";
-import EmptyMessage from "@/components/UI/EmptyMessage";
-import Breadcrumb from "@/components/UI/Breadcrumb";
+import { useSelector, useDispatch } from 'react-redux';
+import { cartActions } from '@/store/cart';
+import InfoTable from '@/app/cart/_components/InfoTable';
+import Coupon from '@/app/cart/_components/Coupon';
+import CartTotal from '@/app/cart/_components/CartTotal';
+import CartActions from '@/app/cart/_components/CartActions';
+import EmptyMessage from '@/components/UI/EmptyMessage';
+import Breadcrumb from '@/components/UI/Breadcrumb';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Cart = () => {
 
   return (
     <div className="container px-8 sm:px-8 mx-auto pb-32">
-      <Breadcrumb parts={["Home", "Cart"]} />
+      <Breadcrumb parts={['Home', 'Cart']} />
       <EmptyMessage message="Your cart is empty" isEmpty={isCartEmpty} />
       {!isCartEmpty && (
         <InfoTable

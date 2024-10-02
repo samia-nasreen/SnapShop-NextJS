@@ -1,6 +1,6 @@
-import LoginForm from "@/components/Login/LoginForm";
-import AuthImage from "@/components/UI/AuthImage";
-import Heading from "@/components/UI/Heading";
+import LoginForm from '@/app/login/_components/LoginForm';
+import AuthImage from '@/components/UI/AuthImage';
+import Heading from '@/components/UI/Heading';
 
 const LoginPage = () => {
   return (

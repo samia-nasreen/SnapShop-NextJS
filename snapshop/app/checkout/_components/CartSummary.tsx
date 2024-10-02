@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Image from "next/image";
-import PlaceOrder from "./PlaceOrder";
-import CartSummaryItem from "@/components/UI/CartSummaryItem";
-import { UseFormRegister, UseFormHandleSubmit } from "react-hook-form";
-import { CartItem } from "@/types/cartItem";
+import Image from 'next/image';
+import PlaceOrder from './PlaceOrder';
+import CartSummaryItem from '@/components/UI/CartSummaryItem';
+import { UseFormRegister, UseFormHandleSubmit } from 'react-hook-form';
+import { CartItem } from '@/types/cartItem';
 
 interface CartSummaryProps {
   cartItems: CartItem[];

@@ -2,7 +2,7 @@ import RedSubHeading from '@/components/UI/RedSubHeading';
 // import TransparentButton from '@/components/UI/TransparentButton';
 import ProductsGrid from '@/components/UI/ProductsGrid';
 import GridSkeleton from '@/components/UI/GridSkeleton';
-import LinkButton from '../UI/LinkButton';
+import LinkButton from '@/components/UI/LinkButton';
 
 const fetchProducts = async () => {
   try {

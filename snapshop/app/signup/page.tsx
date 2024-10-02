@@ -1,6 +1,6 @@
-import AuthImage from "@/components/UI/AuthImage";
-import SignUpForm from "@/components/SignUp/SignUpForm";
-import Heading from "@/components/UI/Heading";
+import AuthImage from '@/components/UI/AuthImage';
+import SignUpForm from '@/app/signup/_components/SignUpForm';
+import Heading from '@/components/UI/Heading';
 
 const SignUpPage = () => {
   return (
