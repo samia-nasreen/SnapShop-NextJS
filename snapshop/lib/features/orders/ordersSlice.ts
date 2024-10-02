@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface Order {
   id: number;
@@ -16,7 +16,7 @@ const initialState: OrdersState = {
 };
 
 const ordersSlice = createSlice({
-  name: "order",
+  name: 'order',
   initialState,
   reducers: {
     placeOrder(state, action: PayloadAction<Order>) {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Providers } from '@/app/providers';
+import StoreProvider from '@/app/StoreProvider';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '@/components/Layout/Header/Header';
@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Providers>
-      <html lang="en">
+    <html lang="en">
+      <StoreProvider>
         <body className="antialiased">
           <Header />
           <Navbar />
@@ -27,7 +27,7 @@ export default function RootLayout({
           <Footer />
           <ToastContainer />
         </body>
-      </html>
-    </Providers>
+      </StoreProvider>
+    </html>
   );
 }

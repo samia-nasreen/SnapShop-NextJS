@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { cartActions } from "@/store/cart";
-import { useDispatch } from "react-redux";
-import TransparentButton from "@/components/UI/TransparentButton";
+import { useRouter } from 'next/navigation';
+import { cartActions } from '@/lib/features/cart/cartSlice';
+import { useAppDispatch } from '@/lib/hooks';
+import TransparentButton from '@/components/UI/TransparentButton';
 
 const CartActions = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
   const handleClearCartButton = () => {
@@ -14,7 +14,7 @@ const CartActions = () => {
   };
 
   const handleReturnToShopButton = () => {
-    router.push("/");
+    router.push('/');
   };
 
   return (

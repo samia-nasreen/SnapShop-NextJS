@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import Button from "@/components/UI/Button";
-import Heading from "@/components/UI/Heading";
-import CartSummaryItem from "@/components/UI/CartSummaryItem";
-import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
+import { useRouter } from 'next/navigation';
+import Button from '@/components/UI/Button';
+import Heading from '@/components/UI/Heading';
+import CartSummaryItem from '@/components/UI/CartSummaryItem';
+import { toast } from 'react-toastify';
+import { useAppSelector } from '@/lib/hooks';
 
 interface CartTotalProps {
   totalAmount: number;
@@ -15,17 +15,17 @@ interface CartTotalProps {
 
 const CartTotal: React.FC<CartTotalProps> = ({ totalAmount, isCartEmpty }) => {
   const router = useRouter();
-  const isAuthenticated = useSelector(
+  const isAuthenticated = useAppSelector(
     (state: any) => state.auth.isAuthenticated
   );
 
   const handleProceedToCheckout = () => {
     if (!isAuthenticated) {
-      toast.error("Please log in first");
-      router.push("/login");
+      toast.error('Please log in first');
+      router.push('/login');
       return;
     }
-    router.push("/checkout");
+    router.push('/checkout');
   };
 
   return (

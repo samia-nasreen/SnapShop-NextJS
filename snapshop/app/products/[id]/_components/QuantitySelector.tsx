@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useDispatch } from "react-redux";
-import { useState } from "react";
-import { cartActions } from "@/store/cart";
-import Button from "@/components/UI/Button";
+import { useAppDispatch } from '@/lib/hooks';
+import { useState } from 'react';
+import { cartActions } from '@/lib/features/cart/cartSlice';
+import Button from '@/components/UI/Button';
 
 interface Product {
   id: number;
@@ -24,7 +24,7 @@ interface QuantitySelectorProps {
 
 const QuantitySelector: React.FC<QuantitySelectorProps> = ({ product }) => {
   const [quantity, setQuantity] = useState<number>(1);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleAddToCart = () => {
     const productData = {

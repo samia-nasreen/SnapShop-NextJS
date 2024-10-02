@@ -1,8 +1,8 @@
 'use client';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '@/store/index';
-import { wishlistActions } from '@/store/wishlist';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
+import { AppDispatch, RootState } from '@/lib/store';
+import { wishlistActions } from '@/lib/features/wishlist/wishlistSlice';
 import { Product } from '@/types/product';
 
 interface WishListIconProps {
@@ -18,8 +18,8 @@ const WishListIcon: React.FC<WishListIconProps> = ({
   size = '9',
   radius = 'rounded-md',
 }) => {
-  const dispatch = useDispatch<AppDispatch>();
-  const wishlist = useSelector((state: RootState) => state.wishlist.items);
+  const dispatch = useAppDispatch<AppDispatch>();
+  const wishlist = useAppSelector((state: RootState) => state.wishlist.items);
 
   const isInWishlist = wishlist.some((item) => item.id === product.id);
 

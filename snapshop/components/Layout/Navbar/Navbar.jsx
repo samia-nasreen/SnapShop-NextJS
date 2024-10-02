@@ -6,7 +6,7 @@ import {
   AiOutlineShoppingCart,
   AiOutlineMenu,
 } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '@/lib/hooks';
 import NavItem from './components/NavItem';
 import IconWithBadge from './components/IconWithBadge';
 import SearchBar from './components/SearchBar';
@@ -17,9 +17,9 @@ import Link from 'next/link';
 const NavBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const wishlistCount = useSelector((state) => state.wishlist.items.length);
-  const cartCount = useSelector((state) => state.cart.items.length);
+  const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
+  const wishlistCount = useAppSelector((state) => state.wishlist.items.length);
+  const cartCount = useAppSelector((state) => state.cart.items.length);
 
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
   const closeSidebar = () => setSidebarOpen(false);

@@ -6,10 +6,10 @@ import { loginSchema } from '@/schemas/authSchemas';
 import Button from '@/components/UI/Button';
 import ForgotPasswordLink from './ForgotPasswordLink';
 import LineInput from '@/components/UI/LineInput';
-import { authActions } from '@/store/auth';
+import { authActions } from '@/lib/features/auth/authSlice';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '@/lib/hooks';
 import { login } from '@/actions';
 import { useState } from 'react';
 
@@ -28,7 +28,7 @@ const LoginForm: React.FC = () => {
   });
 
   const router = useRouter();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [isError, setIsError] = useState(false);
 
   const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {

@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import Link from 'next/link';
-import { cartActions } from '@/store/cart';
-import { RootState } from '@/store';
+import { cartActions } from '@/lib/features/cart/cartSlice';
+import { RootState } from '@/lib/store';
 import Rating from './Rating';
 import WishListIcon from './WishlistIcon';
 import { Product } from '@/types/product';
@@ -12,8 +12,8 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const dispatch = useDispatch();
-  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const dispatch = useAppDispatch();
+  const cartItems = useAppSelector((state: RootState) => state.cart.items);
 
   const isInCart = cartItems.some((item) => item.id === product.id);
 

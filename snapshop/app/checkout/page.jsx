@@ -1,12 +1,12 @@
 'use client';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { checkoutSchema } from '@/schemas/checkoutSchema';
-import { ordersActions } from '@/store/orders';
-import { cartActions } from '@/store/cart';
+import { ordersActions } from '@/lib/features/orders/ordersSlice';
+import { cartActions } from '@/lib/features/cart/cartSlice';
 import CartSummary from '@/app/checkout/_components/CartSummary';
 import CheckoutForm from '@/app/checkout/_components/CheckoutForm';
 import Heading from '@/components/UI/Heading';
@@ -15,9 +15,9 @@ import { toast } from 'react-toastify';
 import { confirmOrder } from '@/actions';
 
 const Checkout = () => {
-  const cartItems = useSelector((state) => state.cart.items);
-  const totalAmount = useSelector((state) => state.cart.totalAmount);
-  const dispatch = useDispatch();
+  const cartItems = useAppSelector((state) => state.cart.items);
+  const totalAmount = useAppSelector((state) => state.cart.totalAmount);
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
   const {

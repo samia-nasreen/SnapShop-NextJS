@@ -2,14 +2,14 @@
 
 import { AiOutlineUser } from 'react-icons/ai';
 import { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '@/lib/hooks';
 import { useRouter } from 'next/navigation';
-import { authActions } from '@/store/auth';
+import { authActions } from '@/lib/features/auth/authSlice';
 import AccountMenuOptions from './AccountMenuOptions';
 import { logout } from '@/actions';
 
 const AccountMenu = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);

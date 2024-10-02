@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CartItem } from "@/types/cartItem";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CartItem } from '@/types/cartItem';
 
 interface CartState {
   items: CartItem[];
@@ -14,7 +14,7 @@ const initialCartState: CartState = {
 };
 
 const cartSlice = createSlice({
-  name: "cart",
+  name: 'cart',
   initialState: initialCartState,
   reducers: {
     addToCart(state, action: PayloadAction<CartItem>) {

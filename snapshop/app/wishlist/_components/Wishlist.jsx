@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useSelector, useDispatch } from "react-redux";
-import { wishlistActions } from "@/store/wishlist";
-import { cartActions } from "@/store/cart";
-import TransparentButton from "@/components/UI/TransparentButton";
-import EmptyMessage from "@/components/UI/EmptyMessage";
-import ProductsGrid from "@/components/UI/ProductsGrid";
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
+import { wishlistActions } from '@/lib/features/wishlist/wishlistSlice';
+import { cartActions } from '@/lib/features/cart/cartSlice';
+import TransparentButton from '@/components/UI/TransparentButton';
+import EmptyMessage from '@/components/UI/EmptyMessage';
+import ProductsGrid from '@/components/UI/ProductsGrid';
 
 const Wishlist = () => {
-  const dispatch = useDispatch();
-  const wishlist = useSelector((state) => state.wishlist.items);
+  const dispatch = useAppDispatch();
+  const wishlist = useAppSelector((state) => state.wishlist.items);
   const isWishlistEmpty = wishlist.length === 0;
 
   const moveAllToCartHandler = () => {
