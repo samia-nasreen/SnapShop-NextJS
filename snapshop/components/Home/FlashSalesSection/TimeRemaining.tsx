@@ -1,5 +1,7 @@
-import useCountdown from "@/hooks/useCountdown";
-import Timer from "@/components/UI/Timer";
+'use client';
+
+import useCountdown from '@/hooks/useCountdown';
+import Timer from '@/components/UI/Timer';
 
 const CountdownTimer: React.FC = () => {
   const { days, hours, minutes, seconds } = useCountdown({

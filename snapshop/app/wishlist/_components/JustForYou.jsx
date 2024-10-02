@@ -1,8 +1,7 @@
 import RedSubHeading from '@/components/UI/RedSubHeading';
-// import TransparentButton from '@/components/UI/TransparentButton';
+import TransparentButton from '@/components/UI/TransparentButton';
 import ProductsGrid from '@/components/UI/ProductsGrid';
 import GridSkeleton from '@/components/UI/GridSkeleton';
-import LinkButton from '@/components/UI/LinkButton';
 
 const fetchProducts = async () => {
   try {
@@ -43,8 +42,7 @@ const JustForYou = async () => {
     <div className="container mx-auto mt-16 mb-24 p-5">
       <div className="flex flex-row justify-between items-center mb-5">
         <RedSubHeading subHeading="Just For You" />
-        {/* <TransparentButton text="See All" onClick={handleSeeAllButton} /> */}
-        <LinkButton text="See All" href="/products" />
+        <TransparentButton text="See All" href="/products" />
       </div>
       {!products && <GridSkeleton />}
       {products && <ProductsGrid products={products} />}

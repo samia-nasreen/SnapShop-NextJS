@@ -1,5 +1,5 @@
 import RedSubHeading from '@/components/UI/RedSubHeading';
-import LinkButton from '@/components/UI/LinkButton';
+import Button from '@/components/UI/Button';
 import Heading from '@/components/UI/Heading';
 import ProductsGrid from '@/components/UI/ProductsGrid';
 import GridSkeleton from '@/components/UI/GridSkeleton';
@@ -48,7 +48,7 @@ const TopRatedSection = async () => {
       <RedSubHeading subHeading="This Month" />
       <div className="flex items-center justify-between mb-4 ">
         <Heading text="Top Rated Products" />
-        <LinkButton text="View All" href="/products" />
+        <Button text="View All" href="/products" />
       </div>
       {!products && <GridSkeleton />}
       {products && <ProductsGrid products={products} />}

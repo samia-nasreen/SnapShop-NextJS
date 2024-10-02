@@ -1,5 +1,5 @@
 import RedSubHeading from '../../../components/UI/RedSubHeading';
-import LinkButton from '../../../components/UI/LinkButton';
+import Button from '../../../components/UI/Button';
 import Heading from '../../../components/UI/Heading';
 import ProductsGrid from '../../../components/UI/ProductsGrid';
 import GridSkeleton from '../../../components/UI/GridSkeleton';
@@ -49,7 +49,7 @@ const ExploreSection = async () => {
         <ProductsGrid products={products} />
       )}
       <div className="mt-12 text-center">
-        <LinkButton text="View All Products" href="/products" />
+        <Button text="View All Products" href="/products" />
       </div>
     </div>
   );
