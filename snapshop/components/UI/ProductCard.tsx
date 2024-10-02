@@ -1,13 +1,11 @@
-"use client";
-
-import { useDispatch, useSelector } from "react-redux";
-import Link from "next/link";
-import { cartActions } from "@/store/cart";
-import { RootState } from "@/store";
-import Rating from "./Rating";
-import WishListIcon from "./WishlistIcon";
-import { Product } from "@/types/product";
-import Image from "next/image";
+import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
+import { cartActions } from '@/store/cart';
+import { RootState } from '@/store';
+import Rating from './Rating';
+import WishListIcon from './WishlistIcon';
+import { Product } from '@/types/product';
+import Image from 'next/image';
 
 interface ProductCardProps {
   product: Product;

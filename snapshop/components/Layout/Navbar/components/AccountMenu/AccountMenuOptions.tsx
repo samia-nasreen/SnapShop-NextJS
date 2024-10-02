@@ -1,5 +1,3 @@
-'use client';
-
 import { AiOutlineUser } from 'react-icons/ai';
 import { BiLogOut } from 'react-icons/bi';
 import { FaRegStar } from 'react-icons/fa';

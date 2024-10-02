@@ -1,7 +1,5 @@
-"use client";
-
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import React from 'react';
 
 interface MenuItemProps {
   icon: React.ComponentType<{ className?: string }>;
