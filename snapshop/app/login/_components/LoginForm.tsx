@@ -10,8 +10,9 @@ import { authActions } from '@/lib/features/auth/authSlice';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import { useAppDispatch } from '@/lib/hooks';
-import { login } from '@/actions';
+import { login, LoginFormState } from '@/actions';
 import { useState } from 'react';
+import { useFormState } from 'react-dom';
 
 interface LoginFormValues {
   username: string;
@@ -26,39 +27,43 @@ const LoginForm: React.FC = () => {
   } = useForm<LoginFormValues>({
     resolver: yupResolver(loginSchema),
   });
+  const [state, formAction] = useFormState<LoginFormState, FormData>(login, {
+    errors: {},
+    token: '',
+  });
 
-  const router = useRouter();
-  const dispatch = useAppDispatch();
-  const [isError, setIsError] = useState(false);
+  // const router = useRouter();
+  // const dispatch = useAppDispatch();
+  // const [isError, setIsError] = useState(false);
 
-  const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
-    toast.info('Logging in...');
+  // const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
+  //   toast.info('Logging in...');
 
-    const formData = new FormData();
-    formData.append('username', data.username);
-    formData.append('password', data.password);
+  //   const formData = new FormData();
+  //   formData.append('username', data.username);
+  //   formData.append('password', data.password);
 
-    const result = await login(formData);
+  //   const result = await login(formData);
 
-    if (result.errors) {
-      setIsError(true);
-      toast.error('Login failed');
-    } else if (result.token) {
-      const token = result.token;
+  //   if (result.errors) {
+  //     setIsError(true);
+  //     toast.error('Login failed');
+  //   } else if (result.token) {
+  //     const token = result.token;
 
-      if (token !== null) {
-        dispatch(authActions.login());
-        toast.success('Logged in successfully');
-        router.push('/');
-      } else {
-        setIsError(true);
-        toast.error('Login failed');
-      }
-    }
-  };
+  //     if (token !== null) {
+  //       dispatch(authActions.login());
+  //       toast.success('Logged in successfully');
+  //       router.push('/');
+  //     } else {
+  //       setIsError(true);
+  //       toast.error('Login failed');
+  //     }
+  //   }
+  // };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-sm">
+    <form action={formAction} className="w-full max-w-sm">
       <LineInput
         name="username"
         register={register}
@@ -73,9 +78,10 @@ const LoginForm: React.FC = () => {
         type="password"
         placeholder="Password"
       />
-      {isError && (
+      {state.errors?._form && (
         <p className="text-red-500 mb-4">
-          Login failed. Please check your username and password.
+          {/* Login failed. Please check your username and password. */}
+          {state.errors?._form.join(', ')}
         </p>
       )}
       <div className="flex flex-col sm:flex-row sm:justify-between items-center">

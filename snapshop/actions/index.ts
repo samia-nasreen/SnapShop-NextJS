@@ -3,3 +3,4 @@ export { login } from './login';
 export { logout } from './logout';
 export { sendContactMessage } from './contact';
 export { confirmOrder } from './checkout';
+export type { LoginFormState } from './login';

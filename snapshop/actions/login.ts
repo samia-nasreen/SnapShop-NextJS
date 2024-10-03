@@ -2,14 +2,17 @@
 
 import { cookies } from 'next/headers';
 
-interface LoginFormState {
+export interface LoginFormState {
   errors?: {
     _form?: string[];
   };
   token?: string;
 }
 
-export async function login(formData: FormData): Promise<LoginFormState> {
+export async function login(
+  formState: LoginFormState,
+  formData: FormData
+): Promise<LoginFormState> {
   const username = formData.get('username') as string;
   const password = formData.get('password') as string;
   const cookieStore = cookies();
