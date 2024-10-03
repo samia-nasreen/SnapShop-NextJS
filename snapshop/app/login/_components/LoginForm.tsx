@@ -30,9 +30,10 @@ const LoginForm: React.FC = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
-    toast.info('Logging in...');
+    setIsLoading(true);
 
     const formData = new FormData();
     formData.append('username', data.username);
@@ -42,6 +43,7 @@ const LoginForm: React.FC = () => {
 
     if (result.errors) {
       setIsError(true);
+
       toast.error('Login failed');
     } else if (result.token) {
       const token = result.token;
@@ -55,6 +57,8 @@ const LoginForm: React.FC = () => {
         toast.error('Login failed');
       }
     }
+
+    setIsLoading(false);
   };
 
   return (
@@ -79,7 +83,12 @@ const LoginForm: React.FC = () => {
         </p>
       )}
       <div className="flex flex-col sm:flex-row sm:justify-between items-center">
-        <Button text="Log In" type="submit" fontSize="base" />
+        <Button
+          text="Log In"
+          type="submit"
+          fontSize="base"
+          isLoading={isLoading}
+        />
         <ForgotPasswordLink />
       </div>
     </form>
