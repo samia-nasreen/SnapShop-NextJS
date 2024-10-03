@@ -30,13 +30,12 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button',
 }) => {
   const buttonClass = `
-    flex items-center justify-center space-x-2 
     px-[2.5em] py-[1.15em] rounded text-white 
     text-${fontSize} 
     ${color}
     ${
       isDisabled || isLoading
-        ? 'bg-gray-500 opacity-70 cursor-not-allowed'
+        ? 'flex items-center justify-center space-x-2 bg-gray-500 opacity-70 cursor-not-allowed'
         : hoverColor
     }
     ${className}

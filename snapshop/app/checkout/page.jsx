@@ -32,8 +32,12 @@ const Checkout = () => {
     const orderDetails = {
       ...data,
       paymentMethod: data.paymentMethod || 'Cash on delivery',
-      cartItems,
-      totalAmount,
+      items: cartItems,
+      totalQuantity: cartItems.reduce(
+        (total, item) => total + item.quantity,
+        0
+      ),
+      totalPrice: totalAmount,
     };
 
     const formData = new FormData();
