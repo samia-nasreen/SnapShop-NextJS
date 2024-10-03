@@ -51,7 +51,11 @@ const NavBar = () => {
           <NavItem to="/">Home</NavItem>
           <NavItem to="/contact">Contact</NavItem>
           <NavItem to="/about">About</NavItem>
-          <NavItem to="/signup">Sign Up</NavItem>
+          {isAuthenticated ? (
+            <NavItem to="/orders">Orders</NavItem>
+          ) : (
+            <NavItem to="/signup">Sign Up</NavItem>
+          )}
         </ul>
         <div className="flex items-center space-x-4">
           <SearchBar className="hidden lg:block" />
@@ -73,9 +77,10 @@ const NavBar = () => {
         </div>
       </div>
       <SideBar
-        isSidebarOpen={isSidebarOpen}
         sidebarRef={sidebarRef}
         closeSidebar={closeSidebar}
+        isSidebarOpen={isSidebarOpen}
+        isAuthenticated={isAuthenticated}
       />
     </div>
   );

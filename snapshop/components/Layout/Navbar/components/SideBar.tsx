@@ -4,14 +4,16 @@ import SearchBar from './SearchBar';
 
 interface SideBarProps {
   isSidebarOpen: boolean;
-  sidebarRef: RefObject<HTMLDivElement>;
   closeSidebar: () => void;
+  isAuthenticated: boolean;
+  sidebarRef: RefObject<HTMLDivElement>;
 }
 
 const SideBar: React.FC<SideBarProps> = ({
-  isSidebarOpen,
   sidebarRef,
   closeSidebar,
+  isSidebarOpen,
+  isAuthenticated,
 }) => {
   return (
     <div
@@ -39,11 +41,19 @@ const SideBar: React.FC<SideBarProps> = ({
               closeSidebar={closeSidebar}
               item="About"
             />
-            <SideBarNavItem
-              to="/signup"
-              closeSidebar={closeSidebar}
-              item="Sign Up"
-            />
+            {isAuthenticated ? (
+              <SideBarNavItem
+                to="/orders"
+                closeSidebar={closeSidebar}
+                item="Orders"
+              />
+            ) : (
+              <SideBarNavItem
+                to="/signup"
+                closeSidebar={closeSidebar}
+                item="Sign Up"
+              />
+            )}
           </ul>
         </div>
       </div>
