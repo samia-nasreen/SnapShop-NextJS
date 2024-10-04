@@ -11,8 +11,13 @@ import NavItem from './components/NavItem';
 import IconWithBadge from './components/IconWithBadge';
 import SearchBar from './components/SearchBar';
 import SideBar from './components/SideBar';
-import AccountMenu from './components/AccountMenu/AccountMenu';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
+
+const AccountMenu = dynamic(
+  () => import('./components/AccountMenu/AccountMenu'),
+  { ssr: false }
+);
 
 const NavBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -63,11 +68,13 @@ const NavBar = () => {
             Icon={AiOutlineHeart}
             count={wishlistCount}
             to="/wishlist"
+            label="Wishlist"
           />
           <IconWithBadge
             Icon={AiOutlineShoppingCart}
             count={cartCount}
             to="/cart"
+            label="Cart"
           />
           {isAuthenticated && <AccountMenu />}
           <AiOutlineMenu

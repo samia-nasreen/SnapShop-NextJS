@@ -2,12 +2,16 @@
 
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { cartActions } from '@/lib/features/cart/cartSlice';
-import InfoTable from '@/app/cart/_components/InfoTable';
 import Coupon from '@/app/cart/_components/Coupon';
 import CartTotal from '@/app/cart/_components/CartTotal';
 import CartActions from '@/app/cart/_components/CartActions';
 import EmptyMessage from '@/components/UI/EmptyMessage';
 import Breadcrumb from '@/components/UI/Breadcrumb';
+import dynamic from 'next/dynamic';
+
+const InfoTable = dynamic(() => import('@/app/cart/_components/InfoTable'), {
+  ssr: false,
+});
 
 const Cart = () => {
   const dispatch = useAppDispatch();
