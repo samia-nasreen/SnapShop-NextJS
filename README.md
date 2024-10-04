@@ -1,4 +1,4 @@
-# SnapShop NextJS
+# SnapShop - NextJS
 
 **SnapShop** is an e-commerce application built using Next.js and powered by the [FakeStore API](https://fakestoreapi.com/). This app showcases product listings, allows users to view product details, add items to the wishlist and cart, and proceed to a mock checkout. Authentication is simulated with credentials from the FakeStore API.
 
