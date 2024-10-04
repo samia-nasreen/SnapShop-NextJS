@@ -1,10 +1,10 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 const ContactInfoCard = () => {
   return (
     <div
       className="bg-white rounded px-16 py-12 w-full md:w-1/3"
-      style={{ boxShadow: "0px 0px 8px 2px rgba(0, 0, 0, 0.05)" }}
+      style={{ boxShadow: '0px 0px 8px 2px rgba(0, 0, 0, 0.05)' }}
     >
       <div className="flex items-center mb-6">
         <div className="flex-shrink-0 bg-red-500 p-3 rounded-full">

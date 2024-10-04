@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client";
+'use client';
 
-import { UseFormRegister, FieldErrors, FieldError } from "react-hook-form";
+import { UseFormRegister, FieldErrors, FieldError } from 'react-hook-form';
 
 interface RoundedInputProps {
   label?: string;
@@ -17,12 +17,12 @@ interface RoundedInputProps {
 const RoundedInput: React.FC<RoundedInputProps> = ({
   label,
   name,
-  type = "text",
+  type = 'text',
   defaultValue,
   register,
   errors,
   required = false,
-  placeholder = "",
+  placeholder = '',
 }) => {
   return (
     <div>
@@ -41,7 +41,7 @@ const RoundedInput: React.FC<RoundedInputProps> = ({
       />
       {errors && errors[name] && (
         <p className="text-red-500 text-sm">
-          {(errors[name] as FieldError)?.message || "Invalid input"}
+          {(errors[name] as FieldError)?.message || 'Invalid input'}
         </p>
       )}
     </div>

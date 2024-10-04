@@ -1,8 +1,8 @@
-import Account from "./components/Account";
-import DownloadApp from "./components/DownloadApp";
-import Exclusive from "./components/Exclusive";
-import QuickLink from "./components/QuickLink";
-import Support from "./components/Support";
+import Account from './components/Account';
+import DownloadApp from './components/DownloadApp';
+import Exclusive from './components/Exclusive';
+import QuickLink from './components/QuickLink';
+import Support from './components/Support';
 
 const Footer = () => {
   return (

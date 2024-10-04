@@ -53,6 +53,7 @@ const SliderCard = () => {
           width={1000}
           height={1000}
           className="w-full h-3/4 mt-12 md:mt-0 md:h-full object-cover"
+          priority={currentIndex === 0}
         />
       </div>
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">

@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { teamMembers } from "@/data/teamMembers";
-import MemberCard from "./MemberCard";
+import { useState } from 'react';
+import { teamMembers } from '@/data/teamMembers';
+import MemberCard from './MemberCard';
 
 const Team = () => {
   const membersPerPage = 3;
@@ -42,8 +42,8 @@ const Team = () => {
               onClick={() => handlePageChange(index)}
               className={`w-3 h-3 rounded-full ${
                 currentPage === index
-                  ? "bg-red-500 border-2 border-gray-300"
-                  : "bg-gray-300"
+                  ? 'bg-red-500 border-2 border-gray-300'
+                  : 'bg-gray-300'
               }`}
             />
           ))}

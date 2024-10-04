@@ -1,5 +1,5 @@
-import React from "react";
-import formatTime from "@/utils/formatTime";
+import React from 'react';
+import formatTime from '@/utils/formatTime';
 
 interface TimerCircleProps {
   time: number;

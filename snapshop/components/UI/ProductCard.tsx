@@ -38,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             alt={product.name}
             width={400}
             height={400}
-            className="w-auto h-48 object-center rounded-t-lg"
+            className="w-auto h-48 object-contain rounded-t-lg"
           />
         </Link>
         <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-medium px-2 py-1 rounded">

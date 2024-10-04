@@ -1,5 +1,5 @@
-import { stats } from "@/data/stats";
-import Image from "next/image";
+import { stats } from '@/data/stats';
+import Image from 'next/image';
 
 const Stats = () => {
   return (
