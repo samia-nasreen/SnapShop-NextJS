@@ -31,7 +31,7 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/snapshop.git
+   git clone https://github.com/samia-nasreen/SnapShop-NextJS.git
 
 2. Navigate into the project directory:
    ```bash
