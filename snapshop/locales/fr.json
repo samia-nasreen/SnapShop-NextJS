@@ -7,5 +7,20 @@
     "orders": "Commandes",
     "signUp": "S'inscrire",
     "searchPlaceholder": "Que cherchez-vous ?"
+  },
+  "categories": {
+    "womensFashion": "Mode Femme",
+    "mensFashion": "Mode Homme",
+    "electronics": "Électronique",
+    "jewellery": "Bijoux",
+    "medicine": "Médecine",
+    "sportsOutdoor": "Sports et Plein Air",
+    "babysToys": "Bébés et Jouets",
+    "groceriesPets": "Épicerie et Animaux",
+    "healthBeauty": "Santé et Beauté",
+    "camera": "Caméra",
+    "headphones": "Casque",
+    "mens": "Homme",
+    "womens": "Femme"
   }
 }

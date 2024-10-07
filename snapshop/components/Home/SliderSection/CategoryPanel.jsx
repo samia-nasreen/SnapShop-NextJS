@@ -3,9 +3,11 @@
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { categories } from '@/data/categories';
+import { useTranslations } from 'next-intl';
 
 const CategoryPanel = () => {
   const router = useRouter();
+  const t = useTranslations('categories');
   const pathname = usePathname();
   const locale = pathname.split('/')[1] || 'en';
 
@@ -30,7 +32,7 @@ const CategoryPanel = () => {
             }`}
             onClick={() => handleCategoryClick(category.value)}
           >
-            {category.name}
+            {t(category.translationKey)}
           </li>
         ))}
       </ul>
