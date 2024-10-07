@@ -35,7 +35,7 @@ const fetchProducts = async () => {
   }
 };
 
-const ExploreSection = async () => {
+const ExploreSection = async ({ locale }) => {
   const products = await fetchProducts();
 
   return (
@@ -44,7 +44,7 @@ const ExploreSection = async () => {
       <Heading text="Explore Our Products" />
       {products && <ProductsGrid products={products} />}
       <div className="mt-12 text-center">
-        <Button text="View All Products" href="/products" />
+        <Button text="View All Products" href={`/${locale}/products`} />
       </div>
     </div>
   );

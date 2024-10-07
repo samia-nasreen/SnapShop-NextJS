@@ -1,19 +1,20 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
-import { categories } from "@/data/categories";
+import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import { categories } from '@/data/categories';
 
 const CategoryPanel = () => {
   const router = useRouter();
   const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'en';
 
   const handleCategoryClick = (category) => {
-    router.push(`/products/category/${category}`);
+    router.push(`/${locale}/products/category/${category}`);
   };
 
   const isActiveCategory = (category) => {
-    return pathname === `/products/category/${category}`;
+    return pathname === `/${locale}/products/category/${category}`;
   };
 
   return (
@@ -24,8 +25,8 @@ const CategoryPanel = () => {
             key={category.value}
             className={`cursor-pointer hover:text-gray-700 ${
               isActiveCategory(category.value)
-                ? "text-gray-700 font-semibold text-lg"
-                : ""
+                ? 'text-gray-700 font-semibold text-lg'
+                : ''
             }`}
             onClick={() => handleCategoryClick(category.value)}
           >

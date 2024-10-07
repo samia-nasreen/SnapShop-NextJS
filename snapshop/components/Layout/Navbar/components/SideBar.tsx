@@ -1,12 +1,14 @@
 import React, { RefObject } from 'react';
 import SideBarNavItem from './SideBarNavItem';
 import SearchBar from './SearchBar';
+import { useTranslations } from 'next-intl';
 
 interface SideBarProps {
   isSidebarOpen: boolean;
   closeSidebar: () => void;
   isAuthenticated: boolean;
   sidebarRef: RefObject<HTMLDivElement>;
+  locale: string;
 }
 
 const SideBar: React.FC<SideBarProps> = ({
@@ -14,7 +16,10 @@ const SideBar: React.FC<SideBarProps> = ({
   closeSidebar,
   isSidebarOpen,
   isAuthenticated,
+  locale,
 }) => {
+  const t = useTranslations('navbar');
+
   return (
     <div
       className={`fixed inset-0 bg-gray-800 bg-opacity-50 z-40 transition-opacity duration-300 ${
@@ -30,28 +35,32 @@ const SideBar: React.FC<SideBarProps> = ({
         <div className="p-6">
           <SearchBar className="mb-4" />
           <ul>
-            <SideBarNavItem to="/" closeSidebar={closeSidebar} item="Home" />
             <SideBarNavItem
-              to="/contact"
+              to={`/${locale}/`}
               closeSidebar={closeSidebar}
-              item="Contact"
+              item={t('home')}
             />
             <SideBarNavItem
-              to="/about"
+              to={`/${locale}/contact`}
               closeSidebar={closeSidebar}
-              item="About"
+              item={t('contact')}
+            />
+            <SideBarNavItem
+              to={`/${locale}/about`}
+              closeSidebar={closeSidebar}
+              item={t('about')}
             />
             {isAuthenticated ? (
               <SideBarNavItem
-                to="/orders"
+                to={`/${locale}/orders`}
                 closeSidebar={closeSidebar}
-                item="Orders"
+                item={t('orders')}
               />
             ) : (
               <SideBarNavItem
-                to="/signup"
+                to={`/${locale}/signup`}
                 closeSidebar={closeSidebar}
-                item="Sign Up"
+                item={t('signUp')}
               />
             )}
           </ul>

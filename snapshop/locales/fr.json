@@ -1,0 +1,11 @@
+{
+  "navbar": {
+    "brandName": "SnapShop",
+    "home": "Accueil",
+    "contact": "Contact",
+    "about": "À propos",
+    "orders": "Commandes",
+    "signUp": "S'inscrire",
+    "searchPlaceholder": "Que cherchez-vous ?"
+  }
+}
