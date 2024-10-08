@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { loginSchema } from '@/schemas/authSchemas';
 import Button from '@/components/UI/Button';
 import ForgotPasswordLink from './ForgotPasswordLink';
-import LineInput from '@/components/UI/LineInput';
+import Input from '@/components/UI/Input';
 import { authActions } from '@/lib/features/auth/authSlice';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
@@ -63,19 +63,21 @@ const LoginForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-sm">
-      <LineInput
+      <Input
         name="username"
         register={register}
         errors={errors}
         type="text"
         placeholder="Username"
+        variant="line"
       />
-      <LineInput
+      <Input
         name="password"
         register={register}
         errors={errors}
         type="password"
         placeholder="Password"
+        variant="line"
       />
       {isError && (
         <p className="text-red-500 mb-4">

@@ -6,7 +6,7 @@ import { signUpSchema } from '@/schemas/authSchemas';
 import GoogleSignUpButton from './GoogleSignUpButton';
 import LoginLink from './LoginLink';
 import Button from '@/components/UI/Button';
-import LineInput from '@/components/UI/LineInput';
+import Input from '@/components/UI/Input';
 import { toast } from 'react-toastify';
 import { signUp } from '@/actions';
 
@@ -45,47 +45,53 @@ const SignUpForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-      <LineInput
+      <Input
         name="email"
         register={register}
         errors={errors}
         type="email"
         placeholder="Email"
+        variant="line"
       />
-      <LineInput
+      <Input
         name="username"
         register={register}
         errors={errors}
         type="text"
         placeholder="Username"
+        variant="line"
       />
-      <LineInput
+      <Input
         name="password"
         register={register}
         errors={errors}
         type="password"
         placeholder="Password"
+        variant="line"
       />
-      <LineInput
+      <Input
         name="name"
         register={register}
         errors={errors}
         type="text"
         placeholder="Name"
+        variant="line"
       />
-      <LineInput
+      <Input
         name="address"
         register={register}
         errors={errors}
         type="text"
         placeholder="Address"
+        variant="line"
       />
-      <LineInput
+      <Input
         name="phone"
         register={register}
         errors={errors}
         type="text"
         placeholder="Phone"
+        variant="line"
       />
       <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
         <Button text="Create Account" fontSize="base" type="submit" />

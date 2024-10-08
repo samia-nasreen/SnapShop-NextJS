@@ -1,15 +1,11 @@
-import Button from "@/components/UI/Button";
-import BorderInput from "@/components/UI/BorderInput";
+import Button from '@/components/UI/Button';
+import Input from '@/components/UI/Input';
 
 const Coupon = () => {
   return (
-    <div className="w-full md:w-1/2 flex flex-row justify-center md:pr-4 mb-4 md:mb-0 space-x-4">
-      <BorderInput
-        placeholder="Coupon Code"
-        fontSize="text-sm"
-        className="flex-1"
-      />
-      <Button text="Apply Coupon" onClick={null} className="md:ml-4" />
+    <div className="flex items-center justify-between">
+      <Input placeholder="Coupon Code" fontSize="text-sm" variant="bordered" />
+      <Button text="Apply Coupon" onClick={null} className="ml-4 -mt-6" />
     </div>
   );
 };

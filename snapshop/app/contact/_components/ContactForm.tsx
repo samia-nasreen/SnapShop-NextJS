@@ -2,11 +2,11 @@
 
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Button from '@/components/UI/Button';
-import RoundedInput from '@/components/UI/RoundedInput';
 import { toast } from 'react-toastify';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { contactSchema } from '@/schemas/contactSchema';
 import { sendContactMessage } from '@/actions';
+import Input from '@/components/UI/Input';
 
 interface ContactFormValues {
   name: string;
@@ -46,27 +46,33 @@ const ContactForm: React.FC = () => {
         className="flex flex-col space-y-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-4">
-          <RoundedInput
+        <div className="flex flex-col md:flex-row md:space-x-10 mb-4">
+          <Input
             name="name"
             placeholder="Your Name"
             register={register}
             errors={errors}
+            variant="rounded"
+            className="flex-1"
             required
           />
-          <RoundedInput
+          <Input
             name="email"
             placeholder="Your Email"
             register={register}
             errors={errors}
+            variant="rounded"
+            className="flex-1"
             required
           />
-          <RoundedInput
+          <Input
             type="tel"
             name="phone"
             placeholder="Your Phone"
             register={register}
             errors={errors}
+            variant="rounded"
+            className="flex-1"
             required
           />
         </div>

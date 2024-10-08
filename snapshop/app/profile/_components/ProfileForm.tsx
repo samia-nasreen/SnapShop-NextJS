@@ -3,7 +3,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import PasswordChange from './PasswordChange';
 import Button from '@/components/UI/Button';
-import RoundedInput from '@/components/UI/RoundedInput';
+import Input from '@/components/UI/Input';
 import capitalizeFirstLetter from '@/utils/capitalizeFirstLetter';
 
 interface UserData {
@@ -41,38 +41,42 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
         Edit Your Profile
       </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 mb-5">
-          <RoundedInput
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 mb-5">
+          <Input
             label="First Name"
             name="firstName"
             errors={errors}
             defaultValue={capitalizeFirstLetter(userData.name.firstname)}
             register={register}
+            variant="rounded"
             required
           />
-          <RoundedInput
+          <Input
             label="Last Name"
             name="lastName"
             errors={errors}
             defaultValue={capitalizeFirstLetter(userData.name.lastname)}
             register={register}
+            variant="rounded"
             required
           />
-          <RoundedInput
+          <Input
             label="Email"
             name="email"
             type="email"
             errors={errors}
             defaultValue={userData.email}
             register={register}
+            variant="rounded"
             required
           />
-          <RoundedInput
+          <Input
             label="Address"
             name="address"
             errors={errors}
             defaultValue={`${userData.address.street}, ${userData.address.number}, ${userData.address.city}, ${userData.address.zipcode}`}
             register={register}
+            variant="rounded"
             required
           />
         </div>

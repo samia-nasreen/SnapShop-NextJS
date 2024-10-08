@@ -1,4 +1,4 @@
-import RoundedInput from '@/components/UI/RoundedInput';
+import Input from '@/components/UI/Input';
 import {
   FieldErrors,
   UseFormRegister,
@@ -30,51 +30,58 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
 }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 text-zinc-400">
-      <RoundedInput
+      <Input
         label="First Name"
         name="firstName"
         register={register}
         errors={errors}
+        variant="rounded"
         required
       />
-      <RoundedInput
+      <Input
         label="Company Name"
         name="companyName"
         register={register}
         errors={errors}
+        variant="rounded"
       />
-      <RoundedInput
+      <Input
         label="Street Address"
         name="streetAddress"
         register={register}
         errors={errors}
+        variant="rounded"
         required
       />
-      <RoundedInput
+      <Input
         label="Apartment, floor, etc. (optional)"
         name="apartment"
         register={register}
         errors={errors}
+        variant="rounded"
       />
-      <RoundedInput
+      <Input
         label="Town/City"
         name="city"
         register={register}
         errors={errors}
+        variant="rounded"
         required
       />
-      <RoundedInput
+      <Input
         label="Phone Number"
         name="phoneNumber"
         register={register}
         errors={errors}
+        variant="rounded"
         required
       />
-      <RoundedInput
+      <Input
         label="Email Address"
         name="email"
         register={register}
         errors={errors}
+        variant="rounded"
         required
       />
       <div className="flex items-center">

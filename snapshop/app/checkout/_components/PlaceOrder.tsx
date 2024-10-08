@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Button from "@/components/UI/Button";
-import PaymentMethod from "@/components/UI/PaymentMethod";
-import BorderInput from "@/components/UI/BorderInput";
-import { UseFormRegister, UseFormHandleSubmit } from "react-hook-form";
+import Image from 'next/image';
+import Button from '@/components/UI/Button';
+import PaymentMethod from '@/components/UI/PaymentMethod';
+import Input from '@/components/UI/Input';
+import { UseFormRegister, UseFormHandleSubmit } from 'react-hook-form';
 
 interface PlaceOrderValues {
   paymentMethod: string;
@@ -27,7 +27,7 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({
             id="bank"
             value="Bank"
             label="Bank"
-            register={register("paymentMethod")}
+            register={register('paymentMethod')}
           />
           <Image
             src="/assets/banks.png"
@@ -41,13 +41,19 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({
           id="cod"
           value="Cash on delivery"
           label="Cash on delivery"
-          register={register("paymentMethod")}
+          register={register('paymentMethod')}
           defaultChecked
         />
       </div>
-      <div className="flex flex-row space-x-4 py-4">
-        <BorderInput placeholder="Coupon Code" className="flex-1" />
-        <Button text="Apply Coupon" fontSize="base" onClick={() => {}} />
+      <div className="flex flex-row items-center space-x-4 py-4">
+        <Input
+          name="coupon"
+          placeholder="Coupon Code"
+          className="flex-1"
+          fontSize="text-sm"
+          variant="bordered"
+        />
+        <Button text="Apply Coupon" className="-mt-6" onClick={() => {}} />
       </div>
       <Button
         text="Place Order"
