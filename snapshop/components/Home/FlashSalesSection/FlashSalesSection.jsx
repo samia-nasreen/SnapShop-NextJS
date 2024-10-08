@@ -36,7 +36,7 @@ const fetchProducts = async () => {
   }
 };
 
-const FlashSalesSection = async ({ locale }) => {
+const FlashSalesSection = async () => {
   const products = await fetchProducts();
 
   return (
@@ -50,7 +50,7 @@ const FlashSalesSection = async ({ locale }) => {
         {products && <ProductsGrid products={products} scroll />}
       </div>
       <div className="mt-4 text-center">
-        <Button text="View All Products" href={`/${locale}/products`} />
+        <Button text="View All Products" href="/products" />
       </div>
       <div className="mt-12 border-b border-gray-200"></div>
     </div>

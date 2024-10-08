@@ -5,7 +5,6 @@ import ProductCard from './ProductCard';
 import { Product } from '@/types/product';
 import ScrollLeftButton from './ScrollLeftButton';
 import ScrollRightButton from './ScrollRightButton';
-import { usePathname } from 'next/navigation';
 
 interface ProductsGridProps {
   products: Product[];
@@ -16,8 +15,6 @@ const ProductsGrid: React.FC<ProductsGridProps> = ({
   products,
   scroll = false,
 }) => {
-  const pathname = usePathname();
-  const locale = pathname.split('/')[1] || 'en';
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
@@ -51,7 +48,7 @@ const ProductsGrid: React.FC<ProductsGridProps> = ({
     >
       {products.map((product) => (
         <div key={product.id} className={scroll ? 'flex-shrink-0' : ''}>
-          <ProductCard product={product} locale={locale} />
+          <ProductCard product={product} />
         </div>
       ))}
       {scroll && (

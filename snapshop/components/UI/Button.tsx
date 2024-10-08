@@ -15,6 +15,8 @@ interface ButtonProps {
   isLoading?: boolean;
   className?: string;
   type?: 'button' | 'submit' | 'reset';
+  variant?: 'filled' | 'transparent';
+  fontWeight?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -28,8 +30,10 @@ const Button: React.FC<ButtonProps> = ({
   isLoading = false,
   className = '',
   type = 'button',
+  variant = 'filled',
+  fontWeight = 'normal',
 }) => {
-  const buttonClass = `
+  const filledButtonClass = `
     px-[2.5em] py-[1.15em] rounded text-white 
     text-${fontSize} 
     ${color}
@@ -41,19 +45,33 @@ const Button: React.FC<ButtonProps> = ({
     ${className}
   `;
 
+  const transparentButtonClass = `
+    bg-transparent border border-gray-600 text-gray-900 font-${fontWeight} 
+    px-[2em] py-[0.8em] rounded ${className}
+  `;
+
+  const buttonClass =
+    variant === 'filled' ? filledButtonClass : transparentButtonClass;
+
+  const content = (
+    <>
+      {isLoading && (
+        <Image
+          src={Spinner}
+          alt="Loading..."
+          width={20}
+          height={20}
+          className="mr-2"
+        />
+      )}
+      {text}
+    </>
+  );
+
   if (href) {
     return (
       <Link href={href} className={buttonClass}>
-        {isLoading && (
-          <Image
-            src={Spinner}
-            alt="Loading..."
-            width={20}
-            height={20}
-            className="mr-2"
-          />
-        )}
-        {text}
+        {content}
       </Link>
     );
   }
@@ -65,16 +83,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={isDisabled}
       className={buttonClass}
     >
-      {isLoading && (
-        <Image
-          src={Spinner}
-          alt="Loading..."
-          width={20}
-          height={20}
-          className="mr-2"
-        />
-      )}
-      {text}
+      {content}
     </button>
   );
 };

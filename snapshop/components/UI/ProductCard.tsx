@@ -9,10 +9,9 @@ import Image from 'next/image';
 
 interface ProductCardProps {
   product: Product;
-  locale: string;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, locale }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
 
@@ -33,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, locale }) => {
   return (
     <div className="product-card max-w-44 md:max-w-64 shadow-inner rounded-lg md:p-4 relative overflow-hidden group cursor-pointer">
       <div className="relative w-full h-48 flex items-center justify-center overflow-hidden">
-        <Link href={`/${locale}/products/${product.id}`}>
+        <Link href={`/products/${product.id}`}>
           <Image
             src={product.image}
             alt={product.name}

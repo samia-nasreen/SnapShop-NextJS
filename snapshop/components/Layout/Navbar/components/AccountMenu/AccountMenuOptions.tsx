@@ -9,38 +9,36 @@ import React from 'react';
 interface AccountMenuOptionsProps {
   closeDropdown: () => void;
   logout: () => void;
-  locale: string;
 }
 
 const AccountMenuOptions: React.FC<AccountMenuOptionsProps> = ({
   closeDropdown,
   logout,
-  locale,
 }) => {
   return (
     <div className="text-white p-3">
       <MenuItem
         icon={AiOutlineUser}
         text="Manage My Account"
-        href={`/${locale}/profile`}
+        href="/profile"
         onClick={closeDropdown}
       />
       <MenuItem
         icon={LuShoppingBag}
         text="My Orders"
-        href={`/${locale}/orders`}
+        href="/orders"
         onClick={closeDropdown}
       />
       <MenuItem
         icon={MdOutlineCancel}
         text="My Cancellations"
-        href={`/${locale}/#cancellations`}
+        href="/cancellations"
         onClick={closeDropdown}
       />
       <MenuItem
         icon={FaRegStar}
         text="My Reviews"
-        href={`/${locale}/#reviews`}
+        href="/reviews"
         onClick={closeDropdown}
       />
       <div

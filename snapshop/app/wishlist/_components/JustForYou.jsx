@@ -1,6 +1,5 @@
 import RedSubHeading from '@/components/UI/RedSubHeading';
 import Button from '@/components/UI/Button';
-import Heading from '@/components/UI/Heading';
 import ProductsGrid from '@/components/UI/ProductsGrid';
 
 const fetchProducts = async () => {
@@ -13,13 +12,9 @@ const fetchProducts = async () => {
 
     const data = await response.json();
 
-    const filteredProducts = data.filter((product) => product.rating.rate > 4);
+    const fetchedProducts = data.sort(() => 0.5 - Math.random()).slice(0, 4);
 
-    const randomProducts = filteredProducts
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 4);
-
-    const products = randomProducts.map((product) => ({
+    const products = fetchedProducts.map((product) => ({
       id: product.id,
       name: product.title,
       image: product.image,
@@ -39,19 +34,18 @@ const fetchProducts = async () => {
   }
 };
 
-const TopRatedSection = async () => {
+const JustForYou = async () => {
   const products = await fetchProducts();
 
   return (
-    <div className="flash-sales mt-16 mb-24 px-4 bg-white relative">
-      <RedSubHeading subHeading="This Month" />
-      <div className="flex items-center justify-between mb-4 ">
-        <Heading text="Top Rated Products" />
-        <Button text="View All" href="/products" />
+    <div className="container mx-auto mt-16 mb-24 p-5">
+      <div className="flex flex-row justify-between items-center mb-5">
+        <RedSubHeading subHeading="Just For You" />
+        <Button text="See All" href="/products" variant="transparent" />
       </div>
       {products && <ProductsGrid products={products} />}
     </div>
   );
 };
 
-export default TopRatedSection;
+export default JustForYou;
