@@ -8,7 +8,7 @@ import { authActions } from '@/lib/features/auth/authSlice';
 import AccountMenuOptions from './AccountMenuOptions';
 import { logout } from '@/actions';
 
-const AccountMenu = () => {
+const AccountMenu = ({ locale }) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +26,7 @@ const AccountMenu = () => {
     await logout();
     dispatch(authActions.logout());
     closeDropdown();
-    router.push('/');
+    router.push(`/${locale}/`);
   };
 
   useEffect(() => {
@@ -55,6 +55,7 @@ const AccountMenu = () => {
           <AccountMenuOptions
             closeDropdown={closeDropdown}
             logout={handleLogout}
+            locale={locale}
           />
         </div>
       )}

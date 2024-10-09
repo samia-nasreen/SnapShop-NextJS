@@ -5,7 +5,7 @@ import { cartActions } from '@/lib/features/cart/cartSlice';
 import { useAppDispatch } from '@/lib/hooks';
 import Button from '@/components/UI/Button';
 
-const CartActions = () => {
+const CartActions = ({ locale }) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
@@ -14,7 +14,7 @@ const CartActions = () => {
   };
 
   const handleReturnToShopButton = () => {
-    router.push('/');
+    router.push(`/${locale}/`);
   };
 
   return (

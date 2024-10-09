@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
-import SideBar from '@/app/profile/_components/SideBar';
-import ProfileForm from '@/app/profile/_components/ProfileForm';
+import SideBar from '@/app/[locale]/profile/_components/SideBar';
+import ProfileForm from '@/app/[locale]/profile/_components/ProfileForm';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import capitalizeFirstLetter from '@/utils/capitalizeFirstLetter';
 import { jwtDecode } from 'jwt-decode';

@@ -4,9 +4,11 @@ import { faApple } from '@fortawesome/free-brands-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { sliderImages as images } from '@/data/sliderImages';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const SliderCard = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const t = useTranslations('slider');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,16 +31,18 @@ const SliderCard = () => {
             className="text-4xl md:text-6xl mr-2 -mt-1 md:-mt-4 mb-2 md:mb-4"
           />
           <h2 className="text-xs md:text-sm font-light -mt-2 md:-mt-6 ml-1 md:ml-2">
-            iPhone 14 Series
+            {t('iphone14')}
           </h2>
         </div>
-        <p className="mt-2 text-3xl md:text-5xl font-medium">Up to 10%</p>
-        <p className="mt-2 md:mt-4 mb-2 md:mb-4 text-2xl md:text-4xl font-medium">
-          off Voucher
+        <p className="mt-2 text-3xl md:text-5xl font-medium">
+          {t('discount.heading')}
+        </p>
+        <p className="mt-2 md:mt-4 mb-2 md:mb-4 text-2xl md:text-3xl font-medium">
+          {t('discount.subheading')}
         </p>
         <a href="#" className="mt-2 md:mt-4 flex items-center group">
           <span className="text-white text-sm md:text-md border-b-[1px] border-white group-hover:text-gray-300">
-            Shop Now
+            {t('shopNow')}
           </span>
           <FontAwesomeIcon
             icon={faArrowRight}

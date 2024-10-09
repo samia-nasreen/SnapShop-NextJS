@@ -1,5 +1,5 @@
-import ProductDetail from '@/app/products/[id]/_components/ProductDetail';
-import RelatedItems from '@/app/products/[id]/_components/RelatedItems';
+import ProductDetail from '@/app/[locale]/products/[id]/_components/ProductDetail';
+import RelatedItems from '@/app/[locale]/products/[id]/_components/RelatedItems';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { notFound } from 'next/navigation';
 

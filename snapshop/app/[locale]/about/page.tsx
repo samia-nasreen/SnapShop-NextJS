@@ -1,6 +1,6 @@
-import OurStory from '@/app/about/_components/OurStory/OurStory';
-import Stats from '@/app/about/_components/Stats/Stats';
-import Team from '@/app/about/_components/Team/Team';
+import OurStory from '@/app/[locale]/about/_components/OurStory/OurStory';
+import Stats from '@/app/[locale]/about/_components/Stats/Stats';
+import Team from '@/app/[locale]/about/_components/Team/Team';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import Services from '@/components/Home/ServicesSection/ServicesSection';
 

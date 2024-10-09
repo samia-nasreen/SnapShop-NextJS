@@ -8,7 +8,7 @@ import ForgotPasswordLink from './ForgotPasswordLink';
 import Input from '@/components/UI/Input';
 import { authActions } from '@/lib/features/auth/authSlice';
 import { toast } from 'react-toastify';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useAppDispatch } from '@/lib/hooks';
 import { login } from '@/actions';
 import { useState } from 'react';
@@ -31,6 +31,8 @@ const LoginForm: React.FC = () => {
   const dispatch = useAppDispatch();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'en';
 
   const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
     setIsLoading(true);
@@ -51,7 +53,7 @@ const LoginForm: React.FC = () => {
       if (token !== null) {
         dispatch(authActions.login());
         toast.success('Logged in successfully');
-        router.push('/');
+        router.push(`/${locale}/`);
       } else {
         setIsError(true);
         toast.error('Login failed');

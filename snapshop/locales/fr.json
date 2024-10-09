@@ -22,5 +22,38 @@
     "headphones": "Casque",
     "mens": "Homme",
     "womens": "Femme"
+  },
+  "about": {
+    "ourStory": {
+      "heading": "Notre Histoire",
+      "description1": "Lancé en 2015, SnapShop est la principale marketplace de shopping en ligne en Asie du Sud, avec une présence active au Bangladesh. Soutenu par un large éventail de solutions marketing, de données et de services sur mesure, SnapShop compte 10 500 vendeurs et 300 marques, et sert 3 millions de clients dans toute la région.",
+      "description2": "SnapShop propose plus d'un million de produits et connaît une croissance très rapide. SnapShop offre une vaste gamme dans des catégories allant des produits de consommation."
+    },
+    "stats": {
+      "sellers": {
+        "label": "10.5k",
+        "description": "Vendeurs actifs sur notre site"
+      },
+      "monthlySales": {
+        "label": "33k",
+        "description": "Vente de produits mensuelle"
+      },
+      "customers": {
+        "label": "45.5k",
+        "description": "Clients actifs sur notre site"
+      },
+      "annualSales": {
+        "label": "25k",
+        "description": "Vente annuelle brute sur notre site"
+      }
+    }
+  },
+  "slider": {
+    "iphone14": "Série iPhone 14",
+    "discount": {
+      "heading": "Jusqu'à 10%",
+      "subheading": "de réduction sur le bon"
+    },
+    "shopNow": "Achetez maintenant"
   }
 }

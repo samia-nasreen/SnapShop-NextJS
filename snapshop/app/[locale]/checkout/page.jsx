@@ -1,7 +1,7 @@
 'use client';
 
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { checkoutSchema } from '@/schemas/checkoutSchema';
@@ -19,6 +19,8 @@ const Checkout = () => {
   const totalAmount = useAppSelector((state) => state.cart.totalAmount);
   const dispatch = useAppDispatch();
   const router = useRouter();
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'en';
 
   const {
     register,
@@ -54,7 +56,7 @@ const Checkout = () => {
       dispatch(ordersActions.placeOrder(orderDetails));
       dispatch(cartActions.clearCart());
       toast.success('Your order has been placed');
-      router.push('/');
+      router.push(`/${locale}/`);
     }
   };
 

@@ -16,8 +16,10 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  params: { locale },
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
   const messages = await getMessages();
   return (
@@ -26,7 +28,7 @@ export default async function RootLayout({
         <body className="antialiased">
           <NextIntlClientProvider messages={messages}>
             <Header />
-            <Navbar />
+            <Navbar locale={locale} />
             {children}
             <Footer />
             <ToastContainer />

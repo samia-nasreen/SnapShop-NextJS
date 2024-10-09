@@ -22,5 +22,38 @@
     "headphones": "Headphones",
     "mens": "Men's",
     "womens": "Women's"
+  },
+  "about": {
+    "ourStory": {
+      "heading": "Our Story",
+      "description1": "Launched in 2015, SnapShop is South Asia's premier online shopping marketplace with an active presence in Bangladesh. Supported by a wide range of tailored marketing, data, and service solutions, SnapShop has 10,500 sellers and 300 brands and serves 3 million customers across the region.",
+      "description2": "SnapShop has more than 1 Million products to offer, growing very fast. SnapShop offers a diverse assortment in categories ranging from consumer."
+    },
+    "stats": {
+      "sellers": {
+        "label": "10.5k",
+        "description": "Sellers active on our site"
+      },
+      "monthlySales": {
+        "label": "33k",
+        "description": "Monthly Product Sale"
+      },
+      "customers": {
+        "label": "45.5k",
+        "description": "Customers active on our site"
+      },
+      "annualSales": {
+        "label": "25k",
+        "description": "Annual gross sale on our site"
+      }
+    }
+  },
+  "slider": {
+    "iphone14": "iPhone 14 Series",
+    "discount": {
+      "heading": "Up to 10%",
+      "subheading": "off Voucher"
+    },
+    "shopNow": "Shop Now"
   }
 }

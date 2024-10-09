@@ -34,14 +34,18 @@ const fetchProducts = async () => {
   }
 };
 
-const JustForYou = async () => {
+const JustForYou = async ({ locale }) => {
   const products = await fetchProducts();
 
   return (
     <div className="container mx-auto mt-16 mb-24 p-5">
       <div className="flex flex-row justify-between items-center mb-5">
         <RedSubHeading subHeading="Just For You" />
-        <Button text="See All" href="/products" variant="transparent" />
+        <Button
+          text="See All"
+          href={`/${locale}/products`}
+          variant="transparent"
+        />
       </div>
       {products && <ProductsGrid products={products} />}
     </div>

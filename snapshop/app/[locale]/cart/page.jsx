@@ -45,7 +45,7 @@ const Cart = () => {
           decreaseQuantityHandler={decreaseQuantityHandler}
         />
       )}
-      <CartActions />
+      <CartActions locale={locale} />
       <div className="flex flex-col md:flex-row justify-between items-start mt-20">
         <Coupon />
         <CartTotal

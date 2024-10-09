@@ -1,6 +1,6 @@
-import ContactInfoCard from '@/app/contact/_components/ContactInfoCard';
-import ContactForm from '@/app/contact/_components/ContactForm';
-import Breadcrumb from '../../components/UI/Breadcrumb';
+import ContactInfoCard from '@/app/[locale]/contact/_components/ContactInfoCard';
+import ContactForm from '@/app/[locale]/contact/_components/ContactForm';
+import Breadcrumb from '@/components/UI/Breadcrumb';
 
 const Contact = () => {
   return (

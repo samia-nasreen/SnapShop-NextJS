@@ -7,15 +7,17 @@ import ServicesSection from '@/components/Home/ServicesSection/ServicesSection';
 import SliderSection from '@/components/Home/SliderSection/SliderSection';
 import TopRatedSection from '@/components/Home/TopRatedSection/TopRatedSection';
 
-const HomePage = () => {
+const HomePage = ({ params }: { params: { locale: string } }) => {
+  const { locale } = params;
+
   return (
     <div className="px-4 sm:px-8 md:px-16 lg:px-28">
       <SliderSection />
-      <FlashSalesSection />
-      <CategorySection />
-      <TopRatedSection />
+      <FlashSalesSection locale={locale} />
+      <CategorySection locale={locale} />
+      <TopRatedSection locale={locale} />
       <BuyNowSection />
-      <ExploreSection />
+      <ExploreSection locale={locale} />
       <NewArrivalSection />
       <ServicesSection />
     </div>

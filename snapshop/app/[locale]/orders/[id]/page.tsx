@@ -7,8 +7,12 @@ import Button from '@/components/UI/Button';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import formatDate from '@/utils/formatDate';
 
-const OrderDetailsPage = ({ params }: { params: { id: string } }) => {
-  const { id } = params;
+const OrderDetailsPage = ({
+  params,
+}: {
+  params: { id: string; locale: string };
+}) => {
+  const { id, locale } = params;
   const orders = useAppSelector((state) => state.orders.orders);
   const order = orders.find((order) => order.id === parseInt(id));
 
@@ -46,7 +50,7 @@ const OrderDetailsPage = ({ params }: { params: { id: string } }) => {
               className="flex items-center mb-4 border-b py-4 transition-all duration-200 hover:bg-gray-50"
             >
               <Link
-                href={`/products/${item.id}`}
+                href={`${locale}/products/${item.id}`}
                 className="flex items-center flex-1"
               >
                 <Image

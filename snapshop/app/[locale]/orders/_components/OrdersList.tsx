@@ -4,7 +4,7 @@ import { useAppSelector } from '@/lib/hooks';
 import formatDate from '@/utils/formatDate';
 import Link from 'next/link';
 
-const OrdersList = () => {
+const OrdersList = ({ locale }: { locale: string }) => {
   const orders = useAppSelector((state) => state.orders.orders);
 
   return (
@@ -50,7 +50,7 @@ const OrdersList = () => {
                   <td className="px-6 py-4">${order.totalPrice.toFixed(2)}</td>
                   <td className="px-6 py-4">
                     <Link
-                      href={`/orders/${order.id}`}
+                      href={`${locale}/orders/${order.id}`}
                       className="text-blue-500 hover:underline"
                     >
                       View
