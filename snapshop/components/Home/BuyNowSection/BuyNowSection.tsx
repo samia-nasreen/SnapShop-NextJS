@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Button from '@/components/UI/Button';
-import TimerCircle from '@/components/UI/TimerCircle';
+import Timer from '@/components/UI/Timer';
 import useCountdown from '@/hooks/useCountdown';
 
 const BuyNowSection: React.FC = () => {
@@ -26,10 +26,10 @@ const BuyNowSection: React.FC = () => {
           Music Experience
         </p>
         <div className="relative flex items-center space-x-2 md:space-x-4 mt-4 mb-4">
-          <TimerCircle time={days} unit="Days" />
-          <TimerCircle time={hours} unit="Hours" />
-          <TimerCircle time={minutes} unit="Mins" />
-          <TimerCircle time={seconds} unit="Secs" />
+          <Timer time={days} unit="Days" circular />
+          <Timer time={hours} unit="Hours" circular />
+          <Timer time={minutes} unit="Mins" circular />
+          <Timer time={seconds} unit="Secs" circular />
         </div>
         <a href="#" className="mt-4">
           <Button
