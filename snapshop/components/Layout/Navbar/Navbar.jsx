@@ -7,6 +7,7 @@ import {
   AiOutlineMenu,
 } from 'react-icons/ai';
 import { useAppSelector } from '@/lib/hooks';
+import { useTranslations } from 'next-intl';
 import NavItem from './components/NavItem';
 import IconWithBadge from './components/IconWithBadge';
 import SearchBar from './components/SearchBar';
@@ -22,6 +23,7 @@ const AccountMenu = dynamic(
 const NavBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
+  const t = useTranslations('navbar');
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
   const wishlistCount = useAppSelector((state) => state.wishlist.items.length);
   const cartCount = useAppSelector((state) => state.cart.items.length);
@@ -53,7 +55,7 @@ const NavBar = () => {
           <Link href="/">SnapShop</Link>
         </div>
         <ul className="hidden md:flex space-x-8 xl:space-x-12 text-sm xl:text-base">
-          <NavItem to="/">Home</NavItem>
+          <NavItem to="/">{t('home')}</NavItem>
           <NavItem to="/contact">Contact</NavItem>
           <NavItem to="/about">About</NavItem>
           {isAuthenticated ? (
@@ -73,7 +75,7 @@ const NavBar = () => {
           <IconWithBadge
             Icon={AiOutlineShoppingCart}
             count={cartCount}
-            to="/cart"
+            to="/en/cart"
             label="Cart"
           />
           {isAuthenticated && <AccountMenu />}

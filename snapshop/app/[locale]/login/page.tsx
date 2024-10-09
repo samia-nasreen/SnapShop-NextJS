@@ -1,4 +1,4 @@
-import LoginForm from '@/app/login/_components/LoginForm';
+import LoginForm from '@/app/[locale]/login/_components/LoginForm';
 import AuthImage from '@/components/UI/AuthImage';
 import Heading from '@/components/UI/Heading';
 

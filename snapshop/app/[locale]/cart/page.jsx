@@ -2,21 +2,27 @@
 
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { cartActions } from '@/lib/features/cart/cartSlice';
-import Coupon from '@/app/cart/_components/Coupon';
-import CartTotal from '@/app/cart/_components/CartTotal';
-import CartActions from '@/app/cart/_components/CartActions';
+import Coupon from '@/app/[locale]/cart/_components/Coupon';
+import CartTotal from '@/app/[locale]/cart/_components/CartTotal';
+import CartActions from '@/app/[locale]/cart/_components/CartActions';
 import EmptyMessage from '@/components/UI/EmptyMessage';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
 
-const InfoTable = dynamic(() => import('@/app/cart/_components/InfoTable'), {
-  ssr: false,
-});
+const InfoTable = dynamic(
+  () => import('@/app/[locale]/cart/_components/InfoTable'),
+  {
+    ssr: false,
+  }
+);
 
 const Cart = () => {
+  const pathname = usePathname();
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart.items);
   const totalAmount = useAppSelector((state) => state.cart.totalAmount);
+  const locale = pathname.split('/')[1] || 'en';
 
   const increaseQuantityHandler = (id) => {
     dispatch(cartActions.increaseQuantity(id));
@@ -42,7 +48,11 @@ const Cart = () => {
       <CartActions />
       <div className="flex flex-col md:flex-row justify-between items-start mt-20">
         <Coupon />
-        <CartTotal totalAmount={totalAmount} isCartEmpty={isCartEmpty} />
+        <CartTotal
+          totalAmount={totalAmount}
+          isCartEmpty={isCartEmpty}
+          locale={locale}
+        />
       </div>
     </div>
   );

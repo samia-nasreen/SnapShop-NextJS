@@ -1,0 +1,26 @@
+{
+  "navbar": {
+    "brandName": "SnapShop",
+    "home": "Home",
+    "contact": "Contact",
+    "about": "About",
+    "orders": "Orders",
+    "signUp": "Sign Up",
+    "searchPlaceholder": "What are you looking for"
+  },
+  "categories": {
+    "womensFashion": "Women's Fashion",
+    "mensFashion": "Men's Fashion",
+    "electronics": "Electronics",
+    "jewellery": "Jewellery",
+    "medicine": "Medicine",
+    "sportsOutdoor": "Sports & Outdoor",
+    "babysToys": "Baby's & Toys",
+    "groceriesPets": "Groceries & Pets",
+    "healthBeauty": "Health & Beauty",
+    "camera": "Camera",
+    "headphones": "Headphones",
+    "mens": "Men's",
+    "womens": "Women's"
+  }
+}
