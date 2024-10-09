@@ -36,7 +36,12 @@ export async function login(formData: FormData): Promise<LoginFormState> {
     }
 
     const data = await response.json();
-    cookieStore.set('authToken', data.token);
+    cookieStore.set({
+      name: 'authToken',
+      value: data.token,
+      httpOnly: true,
+      path: '/',
+    });
     return { token: data.token };
   } catch (error: unknown) {
     if (error instanceof Error) {
