@@ -6,6 +6,7 @@ import { useAppSelector } from '@/lib/hooks';
 import Button from '@/components/UI/Button';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import formatDate from '@/utils/formatDate';
+import { CartItem } from '@/types/cartItem';
 
 const OrderDetailsPage = ({
   params,
@@ -14,7 +15,9 @@ const OrderDetailsPage = ({
 }) => {
   const { id, locale } = params;
   const orders = useAppSelector((state) => state.orders.orders);
-  const order = orders.find((order) => order.id === parseInt(id));
+  const order = orders.find(
+    (order: { id: number }) => order.id === parseInt(id)
+  );
 
   if (!order) {
     return (
@@ -44,7 +47,7 @@ const OrderDetailsPage = ({
 
         <h3 className="text-lg font-semibold mb-2 text-gray-800">Items:</h3>
         <ul className="list-none pl-0 mb-4">
-          {order.items.map((item) => (
+          {order.items.map((item: CartItem) => (
             <li
               key={item.id}
               className="flex items-center mb-4 border-b py-4 transition-all duration-200 hover:bg-gray-50"
