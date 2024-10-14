@@ -21,7 +21,9 @@ const WishListIcon: React.FC<WishListIconProps> = ({
   const dispatch = useAppDispatch<AppDispatch>();
   const wishlist = useAppSelector((state: RootState) => state.wishlist.items);
 
-  const isInWishlist = wishlist.some((item) => item.id === product.id);
+  const isInWishlist = wishlist.some(
+    (item: { id: number }) => item.id === product.id
+  );
 
   const handleWishlistToggle = () => {
     if (isInWishlist) {
