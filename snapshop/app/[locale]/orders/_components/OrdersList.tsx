@@ -3,6 +3,7 @@
 import { useAppSelector } from '@/lib/hooks';
 import formatDate from '@/utils/formatDate';
 import Link from 'next/link';
+import { Order } from '@/lib/features/orders/ordersSlice';
 
 const OrdersList = ({ locale }: { locale: string }) => {
   const orders = useAppSelector((state) => state.orders.orders);
@@ -39,7 +40,7 @@ const OrdersList = ({ locale }: { locale: string }) => {
                 </td>
               </tr>
             ) : (
-              orders.map((order) => (
+              orders.map((order: Order) => (
                 <tr
                   key={order.id}
                   className="bg-white text-center shadow-[0px_0px_8px_2px_rgba(0,0,0,0.05)] hover:shadow-md transform hover:-translate-y-1 transition duration-200 cursor-pointer"
