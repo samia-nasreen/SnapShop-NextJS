@@ -6,6 +6,7 @@ import Rating from './Rating';
 import WishListIcon from './WishlistIcon';
 import { Product } from '@/types/product';
 import Image from 'next/image';
+import { CartItem } from '@/types/cartItem';
 
 interface ProductCardProps {
   product: Product;
@@ -16,7 +17,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, locale }) => {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
 
-  const isInCart = cartItems.some((item) => item.id === product.id);
+  const isInCart = cartItems.some((item: CartItem) => item.id === product.id);
 
   const handleAddToCart = () => {
     if (!isInCart) {
