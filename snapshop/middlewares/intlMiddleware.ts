@@ -4,6 +4,7 @@ import { MiddlewareFactory } from './stackMiddlewares';
 const handleIntlMiddleware = createMiddleware({
   locales: ['en', 'fr', 'es'],
   defaultLocale: 'en',
+  localePrefix: 'as-needed',
 });
 
 export const handleLangMiddleware: MiddlewareFactory =
