@@ -7,13 +7,11 @@ import twitterIcon from '@/public/assets/twitter_icon.png';
 import instagramIcon from '@/public/assets/instagram_icon.png';
 import linkedInIcon from '@/public/assets/linkedin_icon.png';
 
-const DownloadApp = () => {
+const DownloadApp = ({ t }) => {
   return (
     <div className="w-full px-4 mb-6">
-      <h2 className="text-lg font-normal mb-4">Download App</h2>
-      <p className="mb-3 text-xs text-gray-400">
-        Save $3 with App New User Only
-      </p>
+      <h2 className="text-lg font-normal mb-4">{t('downloadApp.heading')}</h2>
+      <p className="mb-3 text-xs text-gray-400">{t('downloadApp.saveText')}</p>
       <div className="mb-4 flex">
         <Image
           src={qrCode}

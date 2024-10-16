@@ -1,47 +1,50 @@
-import RedSubHeading from "@/components/UI/RedSubHeading";
-import Heading from "@/components/UI/Heading";
-import ps5pro from "@/public/assets/ps5pro.jpg";
-import woman from "@/public/assets/woman.jpg";
-import headphones from "@/public/assets/headphones.jpg";
-import gucciPerfume from "@/public/assets/gucci.jpg";
-import NewArrivalItem from "./NewArrivalItem";
+import RedSubHeading from '@/components/UI/RedSubHeading';
+import Heading from '@/components/UI/Heading';
+import ps5pro from '@/public/assets/ps5pro.jpg';
+import woman from '@/public/assets/woman.jpg';
+import headphones from '@/public/assets/headphones.jpg';
+import gucciPerfume from '@/public/assets/gucci.jpg';
+import NewArrivalItem from './NewArrivalItem';
+import { useTranslations } from 'next-intl';
 
 const NewArrivalSection = () => {
+  const t = useTranslations('newArrival');
+
   return (
     <div className="py-8 mt-16 mb-24 px-4 bg-white relative">
-      <RedSubHeading subHeading="Featured" />
-      <Heading text="New Arrival" />
+      <RedSubHeading subHeading={t('subheading')} />
+      <Heading text={t('heading')} />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
         <div className="relative group col-span-2 row-span-2 md:col-span-2 md:row-span-4 bg-white p-2 flex items-center justify-center">
           <NewArrivalItem
             image={ps5pro}
-            altText="PS5 Pro"
-            title="PlayStation 5 Pro"
-            desc="A new Sony PlayStation 5 Pro launching soon."
+            altText={t('items.ps5Pro.title')}
+            title={t('items.ps5Pro.title')}
+            desc={t('items.ps5Pro.desc')}
           />
         </div>
         <div className="relative group col-span-2 row-span-1 md:col-span-2 md:row-span-2 bg-white p-2 flex items-center justify-center">
           <NewArrivalItem
             image={woman}
-            altText="Women's Collections"
-            title="Women's Collections"
-            desc="Featured woman collections that give you another vibe."
+            altText={t('items.womensCollections.title')}
+            title={t('items.womensCollections.title')}
+            desc={t('items.womensCollections.desc')}
           />
         </div>
         <div className="relative group col-span-1 row-span-1 md:col-span-1 md:row-span-2 bg-white p-2 flex items-center justify-center">
           <NewArrivalItem
             image={headphones}
-            altText="Headphones"
-            title="Headphones"
-            desc="Wireless Headphones"
+            altText={t('items.headphones.title')}
+            title={t('items.headphones.title')}
+            desc={t('items.headphones.desc')}
           />
         </div>
         <div className="relative group col-span-1 row-span-1 md:col-span-1 md:row-span-2 bg-white p-2 flex items-center justify-center">
           <NewArrivalItem
             image={gucciPerfume}
-            altText="Perfume"
-            title="Perfume"
-            desc="GUCCI INTENSE OUD EDP"
+            altText={t('items.perfume.title')}
+            title={t('items.perfume.title')}
+            desc={t('items.perfume.desc')}
           />
         </div>
       </div>

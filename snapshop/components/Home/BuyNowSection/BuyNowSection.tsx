@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Button from '@/components/UI/Button';
 import Timer from '@/components/UI/Timer';
 import useCountdown from '@/hooks/useCountdown';
+import { useTranslations } from 'next-intl';
 
 const BuyNowSection: React.FC = () => {
   const { days, hours, minutes, seconds } = useCountdown({
@@ -12,28 +13,30 @@ const BuyNowSection: React.FC = () => {
     minutes: 59,
     seconds: 35,
   });
+  const timer = useTranslations('timer');
+  const t = useTranslations('buyNow');
 
   return (
     <div className="w-full flex flex-col md:flex-row h-auto md:h-[520px] mt-16 relative bg-black border-[16px] border-white">
       <div className="flex flex-col justify-center items-start text-white w-full md:w-1/3 pl-12 md:pl-16 z-10 py-8 md:py-0">
         <h2 className="text-xs md:text-sm font-medium text-green-400">
-          Categories
+          {t('subheading')}
         </h2>
         <p className="mt-4 md:mt-8 text-2xl md:text-4xl font-medium">
-          Enhance Your
+          {t('heading1')}
         </p>
         <p className="mt-2 mb-4 text-2xl md:text-4xl font-medium">
-          Music Experience
+          {t('heading2')}
         </p>
         <div className="relative flex items-center space-x-2 md:space-x-4 mt-4 mb-4">
-          <Timer time={days} unit="Days" circular />
-          <Timer time={hours} unit="Hours" circular />
-          <Timer time={minutes} unit="Mins" circular />
-          <Timer time={seconds} unit="Secs" circular />
+          <Timer time={days} unit={timer('days')} circular />
+          <Timer time={hours} unit={timer('hours')} circular />
+          <Timer time={minutes} unit={timer('mins')} circular />
+          <Timer time={seconds} unit={timer('secs')} circular />
         </div>
         <a href="#" className="mt-4">
           <Button
-            text="Buy Now!"
+            text={t('button')}
             onClick={() => {}}
             fontSize="base"
             color="bg-green-500"

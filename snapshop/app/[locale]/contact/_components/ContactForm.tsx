@@ -7,6 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { contactSchema } from '@/schemas/contactSchema';
 import { sendContactMessage } from '@/actions';
 import Input from '@/components/UI/Input';
+import { useTranslations } from 'next-intl';
 
 interface ContactFormValues {
   name: string;
@@ -24,6 +25,7 @@ const ContactForm: React.FC = () => {
   } = useForm<ContactFormValues>({
     resolver: yupResolver(contactSchema),
   });
+  const t = useTranslations('contact.form');
 
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     const formData = new FormData();
@@ -49,7 +51,7 @@ const ContactForm: React.FC = () => {
         <div className="flex flex-col md:flex-row md:space-x-10 mb-4">
           <Input
             name="name"
-            placeholder="Your Name"
+            placeholder={t('name')}
             register={register}
             errors={errors}
             variant="rounded"
@@ -58,7 +60,7 @@ const ContactForm: React.FC = () => {
           />
           <Input
             name="email"
-            placeholder="Your Email"
+            placeholder={t('email')}
             register={register}
             errors={errors}
             variant="rounded"
@@ -68,7 +70,7 @@ const ContactForm: React.FC = () => {
           <Input
             type="tel"
             name="phone"
-            placeholder="Your Phone"
+            placeholder={t('phone')}
             register={register}
             errors={errors}
             variant="rounded"
@@ -77,7 +79,7 @@ const ContactForm: React.FC = () => {
           />
         </div>
         <textarea
-          placeholder="Your Message"
+          placeholder={t('message')}
           rows={8}
           className="w-full p-3 border border-white bg-stone-100 rounded"
           {...register('message', { required: true })}
@@ -86,7 +88,7 @@ const ContactForm: React.FC = () => {
           <p className="text-red-500 text-sm">Message is required</p>
         )}
         <div className="pt-4 pb-2 text-right">
-          <Button text="Send Message" type="submit" fontSize="base" />
+          <Button text={t('send')} type="submit" fontSize="base" />
         </div>
       </form>
     </div>

@@ -35,16 +35,16 @@ const fetchProducts = async () => {
   }
 };
 
-const ExploreSection = async ({ locale }) => {
+const ExploreSection = async ({ locale, t }) => {
   const products = await fetchProducts();
 
   return (
     <div className="explore-section mt-16 mb-12 px-4 bg-white relative">
-      <RedSubHeading subHeading="Our Products" />
-      <Heading text="Explore Our Products" />
+      <RedSubHeading subHeading={t('subheading')} />
+      <Heading text={t('heading')} />
       {products && <ProductsGrid products={products} />}
       <div className="mt-12 text-center">
-        <Button text="View All Products" href={`/${locale}/products`} />
+        <Button text={t('button')} href={`/${locale}/products`} />
       </div>
     </div>
   );

@@ -1,18 +1,22 @@
 export const stats = [
   {
-    icon: "shop_icon.svg",
-    label: "10.5k",
-    description: "Sellers active on our site",
-  },
-  { icon: "sale_icon.svg", label: "33k", description: "Monthly Product Sale" },
-  {
-    icon: "shoppingbag_icon.svg",
-    label: "45.5k",
-    description: "Customers active on our site",
+    icon: 'shop_icon.svg',
+    label: 'sellers.label',
+    description: 'sellers.description',
   },
   {
-    icon: "moneybag_icon.svg",
-    label: "25k",
-    description: "Annual gross sale on our site",
+    icon: 'sale_icon.svg',
+    label: 'monthlySales.label',
+    description: 'monthlySales.description',
+  },
+  {
+    icon: 'shoppingbag_icon.svg',
+    label: 'customers.label',
+    description: 'customers.description',
+  },
+  {
+    icon: 'moneybag_icon.svg',
+    label: 'annualSales.label',
+    description: 'annualSales.description',
   },
 ];

@@ -36,21 +36,21 @@ const fetchProducts = async () => {
   }
 };
 
-const FlashSalesSection = async ({ locale }) => {
+const FlashSalesSection = async ({ locale, t }) => {
   const products = await fetchProducts();
 
   return (
     <div className="flash-sales mt-16 mb-12 px-4 bg-white relative">
-      <RedSubHeading subHeading="Today's" />
+      <RedSubHeading subHeading={t('subheading')} />
       <div className="flex items-start justify-between">
-        <Heading text="Flash Sales" />
+        <Heading text={t('heading')} />
         <TimeRemaining />
       </div>
       <div className="relative">
         {products && <ProductsGrid products={products} scroll />}
       </div>
       <div className="mt-4 text-center">
-        <Button text="View All Products" href={`/${locale}/products`} />
+        <Button text={t('button')} href={`/${locale}/products`} />
       </div>
       <div className="mt-12 border-b border-gray-200"></div>
     </div>

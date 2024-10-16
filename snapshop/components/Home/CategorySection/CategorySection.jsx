@@ -3,12 +3,15 @@ import RedSubHeading from '@/components/UI/RedSubHeading';
 import Heading from '@/components/UI/Heading';
 import CategoryCard from '@/components/UI/CategoryCard';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const CategorySection = ({ locale }) => {
+  const t = useTranslations('browseByCategory');
+
   return (
     <div className="category-section mt-16 mb-12 px-4 bg-white relative">
-      <RedSubHeading subHeading="Categories" />
-      <Heading text="Browse By Category" />
+      <RedSubHeading subHeading={t('subheading')} />
+      <Heading text={t('heading')} />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {categoryIcons.map((category, index) => (
           <Link

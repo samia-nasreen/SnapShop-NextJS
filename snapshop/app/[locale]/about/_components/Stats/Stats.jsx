@@ -1,7 +1,10 @@
 import { stats } from '@/data/stats';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const Stats = () => {
+  const t = useTranslations('about.stats');
+
   return (
     <div className="category-section mt-20 mb-12 px-5 bg-white relative">
       <div className="flex flex-wrap justify-between gap-4">
@@ -15,7 +18,7 @@ const Stats = () => {
               <div className="relative w-16 h-16 bg-black rounded-full flex justify-center items-center transition group-hover:bg-white">
                 <Image
                   src={`/assets/${stat.icon}`}
-                  alt={stat.label}
+                  alt={t(stat.label)}
                   width={80}
                   height={80}
                   className="w-10 h-10 svg-icon transition group-hover:filter-invert group-hover:brightness-0"
@@ -23,9 +26,9 @@ const Stats = () => {
               </div>
             </div>
             <span className="text-2xl font-semibold mt-6 mb-2">
-              {stat.label}
+              {t(stat.label)}
             </span>
-            <span className="text-sm text-center">{stat.description}</span>
+            <span className="text-sm text-center">{t(stat.description)}</span>
           </div>
         ))}
       </div>

@@ -6,18 +6,22 @@ import NewArrivalSection from '@/components/Home/NewArrivalSection/NewArrivalSec
 import ServicesSection from '@/components/Home/ServicesSection/ServicesSection';
 import SliderSection from '@/components/Home/SliderSection/SliderSection';
 import TopRatedSection from '@/components/Home/TopRatedSection/TopRatedSection';
+import { useTranslations } from 'next-intl';
 
 const HomePage = ({ params }: { params: { locale: string } }) => {
   const { locale } = params;
+  const flashSales = useTranslations('flashSales');
+  const topRated = useTranslations('topRated');
+  const explore = useTranslations('explore');
 
   return (
     <div className="px-4 sm:px-8 md:px-16 lg:px-28">
       <SliderSection />
-      <FlashSalesSection locale={locale} />
+      <FlashSalesSection locale={locale} t={flashSales} />
       <CategorySection locale={locale} />
-      <TopRatedSection locale={locale} />
+      <TopRatedSection locale={locale} t={topRated} />
       <BuyNowSection />
-      <ExploreSection locale={locale} />
+      <ExploreSection locale={locale} t={explore} />
       <NewArrivalSection />
       <ServicesSection />
     </div>

@@ -1,4 +1,8 @@
 {
+  "header": {
+    "saleText": "Soldes d'été sur tous les maillots de bain et livraison express gratuite - 50% de réduction !",
+    "shopNow": "Achetez Maintenant"
+  },
   "navbar": {
     "brandName": "SnapShop",
     "home": "Accueil",
@@ -22,6 +26,141 @@
     "headphones": "Casque",
     "mens": "Homme",
     "womens": "Femme"
+  },
+  "slider": {
+    "iphone14": "Série iPhone 14",
+    "discount": {
+      "heading": "Jusqu'à 10%",
+      "subheading": "de réduction sur le bon"
+    },
+    "shopNow": "Achetez maintenant"
+  },
+  "timer": {
+    "days": "Jours",
+    "hours": "Heures",
+    "minutes": "Minutes",
+    "mins": "Mins",
+    "seconds": "Secondes",
+    "secs": "Secs"
+  },
+  "flashSales": {
+    "heading": "Ventes Flash",
+    "subheading": "Aujourd'hui",
+    "button": "Voir Tous les Produits"
+  },
+  "browseByCategory": {
+    "heading": "Parcourir par Catégorie",
+    "subheading": "Catégories"
+  },
+  "topRated": {
+    "heading": "Produits les Mieux Notés",
+    "subheading": "Ce Mois-ci",
+    "button": "Voir Tout"
+  },
+  "buyNow": {
+    "heading1": "Améliorez Votre",
+    "heading2": "Expérience Musicale",
+    "subheading": "Catégories",
+    "button": "Achetez Maintenant!"
+  },
+  "explore": {
+    "heading": "Explorez Nos Produits",
+    "subheading": "Nos Produits",
+    "button": "Voir Tous les Produits"
+  },
+  "newArrival": {
+    "heading": "Nouveautés",
+    "subheading": "En Vedette",
+    "items": {
+      "ps5Pro": {
+        "title": "PlayStation 5 Pro",
+        "desc": "Une nouvelle Sony PlayStation 5 Pro à venir."
+      },
+      "womensCollections": {
+        "title": "Collections Féminines",
+        "desc": "Collections féminines en vedette qui vous donnent une autre ambiance."
+      },
+      "headphones": {
+        "title": "Casque",
+        "desc": "Casque sans fil"
+      },
+      "perfume": {
+        "title": "Parfum",
+        "desc": "GUCCI INTENSE OUD EDP"
+      }
+    }
+  },
+  "services": {
+    "freeDelivery": {
+      "title": "LIVRAISON GRATUITE ET RAPIDE",
+      "info": "Livraison gratuite pour toutes les commandes de plus de 140 $"
+    },
+    "customerService": {
+      "title": "SERVICE CLIENT 24/7",
+      "info": "Support client amical 24/7"
+    },
+    "moneyBack": {
+      "title": "GARANTIE REMBOURSEMENT",
+      "info": "Nous remboursons dans les 30 jours"
+    }
+  },
+  "footer": {
+    "account": {
+      "heading": "Compte",
+      "links": {
+        "myAccount": "Mon Compte",
+        "loginRegister": "Connexion / Inscription",
+        "cart": "Panier",
+        "wishlist": "Liste de Souhaits",
+        "shop": "Boutique"
+      }
+    },
+    "downloadApp": {
+      "heading": "Télécharger l'Application",
+      "saveText": "Économisez 3 $ avec l'Application Nouvel Utilisateur Seulement"
+    },
+    "exclusive": {
+      "heading": "Exclusif",
+      "subscribeText": "S'abonner",
+      "discountText": "Obtenez 10 % de réduction sur votre première commande",
+      "placeholder": "Entrez votre email",
+      "sendAlt": "Envoyer"
+    },
+    "quickLink": {
+      "heading": "Liens Rapides",
+      "links": {
+        "privacyPolicy": "Politique de Confidentialité",
+        "termsOfUse": "Conditions d'Utilisation",
+        "faq": "FAQ",
+        "contact": "Contact"
+      }
+    },
+    "support": {
+      "heading": "Assistance",
+      "address": "111 Bijoy sarani, Dhaka, DH 1515, Bangladesh."
+    },
+    "copyright": "© Copyright Rimel 2022. Tous droits réservés."
+  },
+  "contact": {
+    "form": {
+      "name": "Votre nom",
+      "email": "Votre email",
+      "phone": "Votre téléphone",
+      "message": "Votre message",
+      "send": "Envoyer le message"
+    },
+    "info": {
+      "callToUs": {
+        "heading": "Appelez-nous",
+        "desc": "Nous sommes disponibles 24h/24, 7 jours sur 7.",
+        "phone": "Téléphone"
+      },
+      "writeToUs": {
+        "heading": "Écrivez-nous",
+        "desc": "Remplissez notre formulaire et nous vous contacterons dans les 24 heures.",
+        "email": "Email"
+      }
+    }
   },
   "about": {
     "ourStory": {
@@ -47,13 +186,5 @@
         "description": "Vente annuelle brute sur notre site"
       }
     }
-  },
-  "slider": {
-    "iphone14": "Série iPhone 14",
-    "discount": {
-      "heading": "Jusqu'à 10%",
-      "subheading": "de réduction sur le bon"
-    },
-    "shopNow": "Achetez maintenant"
   }
 }

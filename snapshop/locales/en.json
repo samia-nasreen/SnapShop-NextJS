@@ -1,4 +1,8 @@
 {
+  "header": {
+    "saleText": "Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!",
+    "shopNow": "ShopNow"
+  },
   "navbar": {
     "brandName": "SnapShop",
     "home": "Home",
@@ -22,6 +26,141 @@
     "headphones": "Headphones",
     "mens": "Men's",
     "womens": "Women's"
+  },
+  "slider": {
+    "iphone14": "iPhone 14 Series",
+    "discount": {
+      "heading": "Up to 10%",
+      "subheading": "off Voucher"
+    },
+    "shopNow": "Shop Now"
+  },
+  "timer": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "mins": "Mins",
+    "seconds": "Seconds",
+    "secs": "Secs"
+  },
+  "flashSales": {
+    "heading": "Flash Sales",
+    "subheading": "Today's",
+    "button": "View All Products"
+  },
+  "browseByCategory": {
+    "heading": "Browse By Category",
+    "subheading": "Categories"
+  },
+  "topRated": {
+    "heading": "Top Rated Products",
+    "subheading": "This Month",
+    "button": "View All"
+  },
+  "buyNow": {
+    "heading1": "Enhance Your",
+    "heading2": "Music Experience",
+    "subheading": "Categories",
+    "button": "Buy Now!"
+  },
+  "explore": {
+    "heading": "Explore Our Products",
+    "subheading": "Our Products",
+    "button": "View All Products"
+  },
+  "newArrival": {
+    "heading": "New Arrivals",
+    "subheading": "Featured",
+    "items": {
+      "ps5Pro": {
+        "title": "PlayStation 5 Pro",
+        "desc": "A new Sony PlayStation 5 Pro launching soon."
+      },
+      "womensCollections": {
+        "title": "Women's Collections",
+        "desc": "Featured woman collections that give you another vibe."
+      },
+      "headphones": {
+        "title": "Headphones",
+        "desc": "Wireless Headphones"
+      },
+      "perfume": {
+        "title": "Perfume",
+        "desc": "GUCCI INTENSE OUD EDP"
+      }
+    }
+  },
+  "services": {
+    "freeDelivery": {
+      "title": "FREE AND FAST DELIVERY",
+      "info": "Free delivery for all orders over $140"
+    },
+    "customerService": {
+      "title": "24/7 CUSTOMER SERVICE",
+      "info": "Friendly 24/7 customer support"
+    },
+    "moneyBack": {
+      "title": "MONEY BACK GUARANTEE",
+      "info": "We return money within 30 days"
+    }
+  },
+  "footer": {
+    "account": {
+      "heading": "Account",
+      "links": {
+        "myAccount": "My Account",
+        "loginRegister": "Login / Register",
+        "cart": "Cart",
+        "wishlist": "Wishlist",
+        "shop": "Shop"
+      }
+    },
+    "downloadApp": {
+      "heading": "Download App",
+      "saveText": "Save $3 with App New User Only"
+    },
+    "exclusive": {
+      "heading": "Exclusive",
+      "subscribeText": "Subscribe",
+      "discountText": "Get 10% off your first order",
+      "placeholder": "Enter your email",
+      "sendAlt": "Send"
+    },
+    "quickLink": {
+      "heading": "Quick Link",
+      "links": {
+        "privacyPolicy": "Privacy Policy",
+        "termsOfUse": "Terms Of Use",
+        "faq": "FAQ",
+        "contact": "Contact"
+      }
+    },
+    "support": {
+      "heading": "Support",
+      "address": "111 Bijoy sarani, Dhaka, DH 1515, Bangladesh."
+    },
+    "copyright": "© Copyright Rimel 2022. All rights reserved."
+  },
+  "contact": {
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "phone": "Your Phone",
+      "message": "Your Message",
+      "send": "Send Message"
+    },
+    "info": {
+      "callToUs": {
+        "heading": "Call To Us",
+        "desc": "We are available 24/7, 7 days a week.",
+        "phone": "Phone"
+      },
+      "writeToUs": {
+        "heading": "Write To Us",
+        "desc": "Fill out our form and we will contact you within 24 hours.",
+        "email": "Email"
+      }
+    }
   },
   "about": {
     "ourStory": {
@@ -47,13 +186,5 @@
         "description": "Annual gross sale on our site"
       }
     }
-  },
-  "slider": {
-    "iphone14": "iPhone 14 Series",
-    "discount": {
-      "heading": "Up to 10%",
-      "subheading": "off Voucher"
-    },
-    "shopNow": "Shop Now"
   }
 }

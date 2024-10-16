@@ -1,6 +1,9 @@
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const ContactInfoCard = () => {
+  const t = useTranslations('contact.info');
+
   return (
     <div
       className="bg-white rounded px-16 py-12 w-full md:w-1/3"
@@ -16,10 +19,10 @@ const ContactInfoCard = () => {
             className="w-6 h-6 text-white"
           />
         </div>
-        <h2 className="text-lg font-semibold ml-3">Call To Us</h2>
+        <h2 className="text-lg font-semibold ml-3">{t('callToUs.heading')}</h2>
       </div>
-      <p className="my-4 text-sm">We are available 24/7, 7 days a week.</p>
-      <p className="mb-8 text-sm">Phone: +8801611112222</p>
+      <p className="my-4 text-sm">{t('callToUs.desc')}</p>
+      <p className="mb-8 text-sm">{t('callToUs.phone')}: +8801611112222</p>
       <hr className="my-4 bg-gray-300 h-[1px]" />
       <div className="flex items-center mt-8 mb-6">
         <div className="flex-shrink-0 bg-red-500 p-3 rounded-full">
@@ -31,13 +34,13 @@ const ContactInfoCard = () => {
             className="w-6 h-6 text-white"
           />
         </div>
-        <h2 className="text-lg font-semibold ml-3">Write To Us</h2>
+        <h2 className="text-lg font-semibold ml-3">{t('writeToUs.heading')}</h2>
       </div>
-      <p className="my-4 text-sm">
-        Fill out our form and we will contact you within 24 hours.
+      <p className="my-4 text-sm">{t('writeToUs.desc')}</p>
+      <p className="mb-4 text-sm">
+        {t('writeToUs.email')}: customer@snapshop.com
       </p>
-      <p className="mb-4 text-sm">Emails: customer@snapshop.com</p>
-      <p className="text-sm">Emails: support@snapshop.com</p>
+      <p className="text-sm">{t('writeToUs.email')}: support@snapshop.com</p>
     </div>
   );
 };

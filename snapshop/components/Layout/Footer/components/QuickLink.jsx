@@ -1,26 +1,26 @@
-const QuickLink = () => {
+const QuickLink = ({ t }) => {
   return (
     <div className="w-full px-4 mb-6">
-      <h2 className="text-lg font-normal mb-4">Quick Link</h2>
+      <h2 className="text-lg font-normal mb-4">{t('quickLink.heading')}</h2>
       <ul>
         <li className="mb-2">
           <a href="#" className="text-sm font-light hover:text-gray-400">
-            Privacy Policy
+            {t('quickLink.links.privacyPolicy')}
           </a>
         </li>
         <li className="mb-2">
           <a href="#" className="text-sm font-light hover:text-gray-400">
-            Terms Of Use
+            {t('quickLink.links.termsOfUse')}
           </a>
         </li>
         <li className="mb-2">
           <a href="#" className="text-sm font-light hover:text-gray-400">
-            FAQ
+            {t('quickLink.links.faq')}
           </a>
         </li>
         <li>
           <a href="#" className="text-sm font-light hover:text-gray-400">
-            Contact
+            {t('quickLink.links.contact')}
           </a>
         </li>
       </ul>

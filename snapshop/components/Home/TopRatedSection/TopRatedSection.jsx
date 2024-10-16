@@ -39,15 +39,15 @@ const fetchProducts = async () => {
   }
 };
 
-const TopRatedSection = async ({ locale }) => {
+const TopRatedSection = async ({ locale, t }) => {
   const products = await fetchProducts();
 
   return (
     <div className="flash-sales mt-16 mb-24 px-4 bg-white relative">
-      <RedSubHeading subHeading="This Month" />
+      <RedSubHeading subHeading={t('subheading')} />
       <div className="flex items-center justify-between mb-4 ">
-        <Heading text="Top Rated Products" />
-        <Button text="View All" href={`/${locale}/products`} />
+        <Heading text={t('heading')} />
+        <Button text={t('button')} href={`/${locale}/products`} />
       </div>
       {products && <ProductsGrid products={products} />}
     </div>
