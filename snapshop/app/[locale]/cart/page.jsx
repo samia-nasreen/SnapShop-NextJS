@@ -8,7 +8,8 @@ import CartActions from '@/app/[locale]/cart/_components/CartActions';
 import EmptyMessage from '@/components/UI/EmptyMessage';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 const InfoTable = dynamic(
   () => import('@/app/[locale]/cart/_components/InfoTable'),
@@ -17,11 +18,21 @@ const InfoTable = dynamic(
   }
 );
 
+const validLocales = ['fr', 'en', 'es'];
+
 const Cart = () => {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart.items);
   const totalAmount = useAppSelector((state) => state.cart.totalAmount);
-  const { locale } = useRouter();
+  const t = useTranslations('cart.empty');
+  const pathname = usePathname();
+
+  const segments = pathname.split('/').filter(Boolean);
+  let locale = segments[0];
+
+  if (!validLocales.includes(locale)) {
+    locale = 'en';
+  }
 
   const increaseQuantityHandler = (id) => {
     dispatch(cartActions.increaseQuantity(id));
@@ -36,7 +47,7 @@ const Cart = () => {
   return (
     <div className="container px-8 sm:px-8 mx-auto pb-32">
       <Breadcrumb parts={['Home', 'Cart']} />
-      <EmptyMessage message="Your cart is empty" isEmpty={isCartEmpty} />
+      <EmptyMessage message={t('message')} isEmpty={isCartEmpty} />
       {!isCartEmpty && (
         <InfoTable
           cartItems={cartItems}
@@ -50,7 +61,7 @@ const Cart = () => {
         <CartTotal
           totalAmount={totalAmount}
           isCartEmpty={isCartEmpty}
-          locale={locale ? locale : 'en'}
+          locale={locale}
         />
       </div>
     </div>

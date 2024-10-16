@@ -34,15 +34,15 @@ const fetchProducts = async () => {
   }
 };
 
-const JustForYou = async ({ locale }) => {
+const JustForYou = async ({ locale, t }) => {
   const products = await fetchProducts();
 
   return (
     <div className="container mx-auto mt-16 mb-24 p-5">
       <div className="flex flex-row justify-between items-center mb-5">
-        <RedSubHeading subHeading="Just For You" />
+        <RedSubHeading subHeading={t('justForYou')} />
         <Button
-          text="See All"
+          text={t('seeAll')}
           href={`/${locale}/products`}
           variant="transparent"
         />

@@ -7,12 +7,14 @@ import Button from '@/components/UI/Button';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import formatDate from '@/utils/formatDate';
 import { CartItem } from '@/types/cartItem';
+import { useTranslations } from 'next-intl';
 
 const OrderDetailsPage = ({
   params,
 }: {
   params: { id: string; locale: string };
 }) => {
+  const t = useTranslations('order');
   const { id, locale } = params;
   const orders = useAppSelector((state) => state.orders.orders);
   const order = orders.find(
@@ -32,20 +34,22 @@ const OrderDetailsPage = ({
       <Breadcrumb parts={['Home', 'Orders', 'Details']} />
       <div className="bg-white pt-4 pb-6 px-6 rounded-lg shadow-md">
         <h2 className="text-xl font-semibold mb-4 text-red-500">
-          Order ID: {order.id}
+          {t('orderId')}: {order.id}
         </h2>
         <p className="text-gray-700 mb-2">
-          <span className="font-medium">Date:</span>{' '}
+          <span className="font-medium">{t('date')}:</span>{' '}
           {formatDate(order.createdAt)}
         </p>
         <p className="text-gray-700 mb-6">
-          <span className="font-medium">Total Price:</span>{' '}
+          <span className="font-medium">{t('total')}:</span>{' '}
           <span className="text-lg font-semibold">
             ${order.totalPrice.toFixed(2)}
           </span>
         </p>
 
-        <h3 className="text-lg font-semibold mb-2 text-gray-800">Items:</h3>
+        <h3 className="text-lg font-semibold mb-2 text-gray-800">
+          {t('items')}:
+        </h3>
         <ul className="list-none pl-0 mb-4">
           {order.items.map((item: CartItem) => (
             <li
@@ -66,7 +70,7 @@ const OrderDetailsPage = ({
                 <div>
                   <div className="font-semibold text-gray-800">{item.name}</div>
                   <div className="text-gray-600">
-                    Quantity: x{item.quantity}
+                    {t('quantity')}: x{item.quantity}
                   </div>
                   <div className="text-gray-600">
                     ${(item.price * item.quantity).toFixed(2)}
@@ -78,17 +82,12 @@ const OrderDetailsPage = ({
         </ul>
 
         <div className="mt-6">
-          <Button text="Print Invoice" className="font-bold" />
+          <Button text={t('print')} className="font-bold" />
         </div>
       </div>
       <div className="mt-6 p-4 bg-gray-100 rounded-lg">
-        <h3 className="text-lg font-semibold text-gray-800">
-          Additional Notes:
-        </h3>
-        <p className="text-gray-600">
-          Thank you for your order! If you have any questions, feel free to
-          contact our support team.
-        </p>
+        <h3 className="text-lg font-semibold text-gray-800">{t('notes')}:</h3>
+        <p className="text-gray-600">{t('desc')}</p>
       </div>
     </div>
   );

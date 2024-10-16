@@ -13,14 +13,24 @@ import Heading from '@/components/UI/Heading';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { toast } from 'react-toastify';
 import { confirmOrder } from '@/actions';
+import { useTranslations } from 'next-intl';
+
+const validLocales = ['fr', 'en', 'es'];
 
 const Checkout = () => {
   const cartItems = useAppSelector((state) => state.cart.items);
   const totalAmount = useAppSelector((state) => state.cart.totalAmount);
   const dispatch = useAppDispatch();
   const router = useRouter();
+  const t = useTranslations('checkout.heading');
   const pathname = usePathname();
-  const locale = pathname.split('/')[1] || 'en';
+
+  const segments = pathname.split('/').filter(Boolean);
+  let locale = segments[0];
+
+  if (!validLocales.includes(locale)) {
+    locale = 'en';
+  }
 
   const {
     register,
@@ -64,7 +74,7 @@ const Checkout = () => {
     <div className="container mx-auto px-8 pb-32 grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div className="lg:pr-24">
         <Breadcrumb parts={['Account', 'My Account', 'Cart', 'Checkout']} />
-        <Heading text="Billing Details" />
+        <Heading text={t('title')} />
         <CheckoutForm
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}

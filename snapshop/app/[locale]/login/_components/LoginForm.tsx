@@ -10,6 +10,7 @@ import { authActions } from '@/lib/features/auth/authSlice';
 import { toast } from 'react-toastify';
 import { useRouter, usePathname } from 'next/navigation';
 import { useAppDispatch } from '@/lib/hooks';
+import { useTranslations } from 'next-intl';
 import { login } from '@/actions';
 import { useState } from 'react';
 
@@ -17,6 +18,8 @@ interface LoginFormValues {
   username: string;
   password: string;
 }
+
+const validLocales = ['en', 'fr', 'es'];
 
 const LoginForm: React.FC = () => {
   const {
@@ -31,8 +34,15 @@ const LoginForm: React.FC = () => {
   const dispatch = useAppDispatch();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const t = useTranslations('login.form');
   const pathname = usePathname();
-  const locale = pathname.split('/')[1] || 'en';
+
+  const segments = pathname.split('/').filter(Boolean);
+  let locale = segments[0];
+
+  if (!validLocales.includes(locale)) {
+    locale = 'en';
+  }
 
   const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
     setIsLoading(true);
@@ -53,6 +63,7 @@ const LoginForm: React.FC = () => {
       if (token !== null) {
         dispatch(authActions.login());
         toast.success('Logged in successfully');
+        console.log('Redirecting to:', `/${locale}/`);
         router.push(`/${locale}/`);
       } else {
         setIsError(true);
@@ -70,7 +81,7 @@ const LoginForm: React.FC = () => {
         register={register}
         errors={errors}
         type="text"
-        placeholder="Username"
+        placeholder={t('username')}
         variant="line"
       />
       <Input
@@ -78,7 +89,7 @@ const LoginForm: React.FC = () => {
         register={register}
         errors={errors}
         type="password"
-        placeholder="Password"
+        placeholder={t('password')}
         variant="line"
       />
       {isError && (
@@ -88,7 +99,7 @@ const LoginForm: React.FC = () => {
       )}
       <div className="flex flex-col sm:flex-row sm:justify-between items-center">
         <Button
-          text="Log In"
+          text={t('button')}
           type="submit"
           fontSize="base"
           isLoading={isLoading}

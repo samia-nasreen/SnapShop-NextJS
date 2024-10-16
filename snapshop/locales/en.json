@@ -186,5 +186,139 @@
         "description": "Annual gross sale on our site"
       }
     }
+  },
+  "signUp": {
+    "heading": "Create an account",
+    "subheading": "Enter your details below",
+    "form": {
+      "email": "Email",
+      "username": "Username",
+      "password": "Password",
+      "name": "Name",
+      "address": "Address",
+      "phone": "Phone",
+      "createAccount": "Create Account"
+    },
+    "loginLink": {
+      "text": "Already have an account?",
+      "link": "Log in"
+    },
+    "googleSignUp": { "text": "Sign Up with Google" }
+  },
+  "login": {
+    "heading": "Log in to SnapShop",
+    "subheading": "Enter your details below",
+    "form": {
+      "username": "Username",
+      "password": "Password",
+      "button": "Log in"
+    },
+    "forgotPassword": {
+      "text": "Forgot Password?"
+    }
+  },
+  "wishlist": {
+    "heading": "Wishlist",
+    "emptyMessage": "Your wishlist is empty",
+    "moveToCart": "Move All to Cart",
+    "justForYou": "Just For You",
+    "seeAll": "See All"
+  },
+  "cart": {
+    "empty": {
+      "message": "Your cart is empty"
+    },
+    "tableHeader": {
+      "product": "Product",
+      "price": "Price",
+      "quantity": "Quantity",
+      "subtotal": "Subtotal"
+    },
+    "actions": {
+      "return": "Return To Shop",
+      "clear": "Clear Cart"
+    },
+    "total": {
+      "cartTotal": "Cart Total",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "total": "Total",
+      "proceed": "Proceed to Checkout"
+    },
+    "coupon": {
+      "placeholder": "Coupon Code",
+      "apply": "Apply Coupon"
+    }
+  },
+  "checkout": {
+    "heading": {
+      "title": "Billing Details"
+    },
+    "form": {
+      "name": "First Name",
+      "company": "Company Name",
+      "address": "Street Address",
+      "apartment": "Apartment, floor, etc. (optional)",
+      "city": "Town/City",
+      "phone": "Phone Number",
+      "email": "Email Adress",
+      "save": "Save this information for faster check-out next time"
+    },
+    "cartSummary": {
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "total": "Total"
+    },
+    "placeOrder": {
+      "bank": "Bank",
+      "cod": "Cash On Delivery",
+      "coupon": "Coupon Code",
+      "apply": "Apply Coupon",
+      "placeOrder": "Place Order"
+    }
+  },
+  "orders": {
+    "heading": "My Orders",
+    "id": "ID",
+    "date": "Date",
+    "noOfItems": "No. of Items",
+    "total": "Total Price",
+    "details": "Details",
+    "view": "View",
+    "emptyMessage": "No orders have been placed yet."
+  },
+  "order": {
+    "orderId": "Order ID",
+    "date": "Date",
+    "total": "Total Price",
+    "items": "Items",
+    "quantity": "Quantity",
+    "print": "Print Invoice",
+    "notes": "Additional Notes",
+    "desc": "Thank you for your order! If you have any questions, feel free to contact our support team."
+  },
+  "profile": {
+    "welcome": "Welcome",
+    "editYourProfile": "Edit Your Profile",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "address": "Address",
+    "passwordChanges": "Password Changes",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmNewPassword": "Confirm New Password",
+    "saveChanges": "Save Changes",
+    "cancel": "Cancel"
+  },
+  "profileOptions": {
+    "manageMyAccount": "Manage My Account",
+    "myProfile": "My Profile",
+    "addressBook": "Address Book",
+    "myPaymentOptions": "My Payment Options",
+    "myOrders": "My Orders",
+    "myReturns": "My Returns",
+    "myCancellations": "My Cancellations",
+    "myWishList": "My WishList"
   }
 }

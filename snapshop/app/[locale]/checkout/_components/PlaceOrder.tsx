@@ -3,6 +3,7 @@ import Button from '@/components/UI/Button';
 import PaymentMethod from '@/components/UI/PaymentMethod';
 import Input from '@/components/UI/Input';
 import { UseFormRegister, UseFormHandleSubmit } from 'react-hook-form';
+import { useTranslations } from 'next-intl';
 
 interface PlaceOrderValues {
   paymentMethod: string;
@@ -19,6 +20,8 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({
   handleSubmit,
   onSubmit,
 }) => {
+  const t = useTranslations('checkout.placeOrder');
+
   return (
     <>
       <div className="space-y-6 pt-2">
@@ -26,7 +29,7 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({
           <PaymentMethod
             id="bank"
             value="Bank"
-            label="Bank"
+            label={t('bank')}
             register={register('paymentMethod')}
           />
           <Image
@@ -40,7 +43,7 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({
         <PaymentMethod
           id="cod"
           value="Cash on delivery"
-          label="Cash on delivery"
+          label={t('cod')}
           register={register('paymentMethod')}
           defaultChecked
         />
@@ -48,15 +51,15 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({
       <div className="flex flex-row items-center space-x-4 py-4">
         <Input
           name="coupon"
-          placeholder="Coupon Code"
+          placeholder={t('coupon')}
           className="flex-1"
           fontSize="text-sm"
           variant="bordered"
         />
-        <Button text="Apply Coupon" className="-mt-6" onClick={() => {}} />
+        <Button text={t('apply')} className="-mt-6" onClick={() => {}} />
       </div>
       <Button
-        text="Place Order"
+        text={t('placeOrder')}
         fontSize="base"
         onClick={handleSubmit(onSubmit)}
       />

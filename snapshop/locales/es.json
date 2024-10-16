@@ -186,5 +186,138 @@
         "description": "Venta bruta anual en nuestro sitio"
       }
     }
+  },
+  "signUp": {
+    "heading": "Crear una cuenta",
+    "subheading": "Ingrese sus detalles a continuación",
+    "form": {
+      "email": "Correo electrónico",
+      "username": "Nombre de usuario",
+      "password": "Contraseña",
+      "name": "Nombre",
+      "address": "Dirección",
+      "phone": "Teléfono",
+      "createAccount": "Crear cuenta"
+    },
+    "loginLink": {
+      "text": "¿Ya tienes una cuenta?",
+      "link": "Inicia sesión"
+    },
+    "googleSignUp": { "text": "Regístrate con Google" }
+  },
+  "login": {
+    "heading": "Inicia sesión en SnapShop",
+    "subheading": "Ingrese sus detalles a continuación",
+    "form": {
+      "username": "Nombre de usuario",
+      "password": "Contraseña",
+      "button": "Iniciar sesión"
+    },
+    "forgotPassword": {
+      "text": "¿Olvidaste tu contraseña?"
+    }
+  },
+  "wishlist": {
+    "heading": "Lista de deseos",
+    "emptyMessage": "Tu lista de deseos está vacía",
+    "moveToCart": "Mover todo al carrito",
+    "justForYou": "Solo para ti",
+    "seeAll": "Ver todo"
+  },
+  "cart": {
+    "empty": {
+      "message": "Tu carrito está vacío"
+    },
+    "tableHeader": {
+      "product": "Producto",
+      "price": "Precio",
+      "quantity": "Cantidad",
+      "subtotal": "Subtotal"
+    },
+    "actions": {
+      "return": "Volver a la tienda",
+      "clear": "Vaciar carrito"
+    },
+    "total": {
+      "cartTotal": "Total del carrito",
+      "subtotal": "Subtotal",
+      "shipping": "Envío",
+      "total": "Total",
+      "proceed": "Proceder al pago"
+    },
+    "coupon": {
+      "placeholder": "Código de cupón",
+      "apply": "Aplicar cupón"
+    }
+  },
+  "checkout": {
+    "heading": {
+      "title": "Detalles de facturación"
+    },
+    "form": {
+      "name": "Nombre",
+      "company": "Nombre de la empresa",
+      "address": "Dirección",
+      "apartment": "Apartamento, piso, etc. (opcional)",
+      "city": "Ciudad",
+      "phone": "Número de teléfono",
+      "email": "Dirección de correo electrónico",
+      "save": "Guardar esta información para un pago más rápido la próxima vez"
+    },
+    "cartSummary": {
+      "subtotal": "Subtotal",
+      "shipping": "Envío",
+      "total": "Total"
+    },
+    "placeOrder": {
+      "bank": "Banco",
+      "cod": "Pago contra entrega",
+      "coupon": "Código de cupón",
+      "apply": "Aplicar cupón",
+      "placeOrder": "Realizar pedido"
+    }
+  },
+  "orders": {
+    "heading": "Mis pedidos",
+    "id": "ID",
+    "date": "Fecha",
+    "noOfItems": "N.º de artículos",
+    "total": "Precio total",
+    "details": "Detalles",
+    "view": "Ver",
+    "emptyMessage": "Aún no se han realizado pedidos."
+  },
+  "order": {
+    "orderId": "ID de pedido",
+    "date": "Fecha",
+    "total": "Precio total",
+    "items": "Artículos",
+    "quantity": "Cantidad",
+    "print": "Imprimir factura",
+    "notes": "Notas adicionales",
+    "desc": "¡Gracias por tu pedido! Si tienes alguna pregunta, no dudes en contactar con nuestro equipo de soporte."
+  },
+  "profile": {
+    "editYourProfile": "Edita tu perfil",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "Correo electrónico",
+    "address": "Dirección",
+    "passwordChanges": "Cambios de contraseña",
+    "currentPassword": "Contraseña actual",
+    "newPassword": "Nueva contraseña",
+    "confirmNewPassword": "Confirma nueva contraseña",
+    "saveChanges": "Guardar cambios",
+    "cancel": "Cancelar"
+  },
+  "profileOptions": {
+    "manageMyAccount": "Gestionar mi cuenta",
+    "myProfile": "Mi perfil",
+    "addressBook": "Libreta de direcciones",
+    "myPaymentOptions": "Mis opciones de pago",
+    "myOrders": "Mis pedidos",
+    "myReturns": "Mis devoluciones",
+    "myCancellations": "Mis cancelaciones",
+    "myWishList": "Mi lista de deseos"
   }
 }

@@ -9,7 +9,7 @@ export const handleAuthMiddleware: MiddlewareFactory =
 
     const isProtectedRoute = protectedRoutes.some((route) => {
       const regex = new RegExp(
-        `^\/(fr|en|es)${route.replace(/\[\w+\]/, '\\w+')}`
+        `^/(fr|en|es)?${route.replace(/\[\w+\]/, '\\w+')}(/.*)?$`
       );
       return regex.test(pathname);
     });
@@ -19,6 +19,7 @@ export const handleAuthMiddleware: MiddlewareFactory =
 
       if (!token) {
         const locale = req.nextUrl.pathname.split('/')[1] || 'en';
+        console.log('Auth middleware running with locale', locale);
         const url = new URL(`/${locale}/login`, req.url);
         return NextResponse.redirect(url);
       }

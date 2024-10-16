@@ -2,6 +2,7 @@
 import React from 'react';
 import { UseFormRegister, FieldValues, FieldErrors } from 'react-hook-form';
 import Input from '@/components/UI/Input';
+import { useTranslations } from 'next-intl';
 
 interface PasswordChangeProps {
   register: UseFormRegister<any>;
@@ -11,38 +12,42 @@ interface PasswordChangeProps {
 const PasswordChange: React.FC<PasswordChangeProps> = ({
   register,
   errors,
-}) => (
-  <div className="mb-5">
-    <label className="block font-medium text-gray-600 mt-8 mb-2">
-      Password Changes
-    </label>
-    <div className="grid grid-cols-1">
-      <Input
-        type="password"
-        name="currentPassword"
-        placeholder="Current Password"
-        variant="rounded"
-        register={register}
-        errors={errors}
-      />
-      <Input
-        type="password"
-        name="newPassword"
-        placeholder="New Password"
-        variant="rounded"
-        register={register}
-        errors={errors}
-      />
-      <Input
-        type="password"
-        name="confirmNewPassword"
-        placeholder="Confirm New Password"
-        variant="rounded"
-        register={register}
-        errors={errors}
-      />
+}) => {
+  const t = useTranslations('profile');
+
+  return (
+    <div className="mb-5">
+      <label className="block font-medium text-gray-600 mt-8 mb-2">
+        {t('passwordChanges')}
+      </label>
+      <div className="grid grid-cols-1">
+        <Input
+          type="password"
+          name="currentPassword"
+          placeholder={t('currentPassword')}
+          variant="rounded"
+          register={register}
+          errors={errors}
+        />
+        <Input
+          type="password"
+          name="newPassword"
+          placeholder={t('newPassword')}
+          variant="rounded"
+          register={register}
+          errors={errors}
+        />
+        <Input
+          type="password"
+          name="confirmNewPassword"
+          placeholder={t('confirmNewPassword')}
+          variant="rounded"
+          register={register}
+          errors={errors}
+        />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default PasswordChange;

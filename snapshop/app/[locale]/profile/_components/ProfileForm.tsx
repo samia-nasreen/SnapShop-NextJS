@@ -5,6 +5,7 @@ import PasswordChange from './PasswordChange';
 import Button from '@/components/UI/Button';
 import Input from '@/components/UI/Input';
 import capitalizeFirstLetter from '@/utils/capitalizeFirstLetter';
+import { useTranslations } from 'next-intl';
 
 interface UserData {
   name: {
@@ -35,15 +36,17 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
     console.log(data);
   };
 
+  const t = useTranslations('profile');
+
   return (
     <div className="bg-white py-10 px-10 sm:px-20 rounded shadow-[0px_0px_8px_2px_rgba(0,0,0,0.05)]">
       <h2 className="text-2xl font-medium text-red-500 mb-5">
-        Edit Your Profile
+        {t('editYourProfile')}
       </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 mb-5">
           <Input
-            label="First Name"
+            label={t('firstName')}
             name="firstName"
             errors={errors}
             defaultValue={capitalizeFirstLetter(userData.name.firstname)}
@@ -52,7 +55,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
             required
           />
           <Input
-            label="Last Name"
+            label={t('lastName')}
             name="lastName"
             errors={errors}
             defaultValue={capitalizeFirstLetter(userData.name.lastname)}
@@ -61,7 +64,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
             required
           />
           <Input
-            label="Email"
+            label={t('email')}
             name="email"
             type="email"
             errors={errors}
@@ -71,7 +74,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
             required
           />
           <Input
-            label="Address"
+            label={t('address')}
             name="address"
             errors={errors}
             defaultValue={`${userData.address.street}, ${userData.address.number}, ${userData.address.city}, ${userData.address.zipcode}`}
@@ -83,9 +86,9 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
         <PasswordChange register={register} errors={errors} />
         <div className="flex justify-end space-x-4">
           <button type="button" className="md:px-4 py-2">
-            Cancel
+            {t('cancel')}
           </button>
-          <Button text="Save Changes" type="submit" />
+          <Button text={t('saveChanges')} type="submit" />
         </div>
       </form>
     </div>

@@ -4,6 +4,7 @@ import {
   UseFormRegister,
   UseFormHandleSubmit,
 } from 'react-hook-form';
+import { useTranslations } from 'next-intl';
 
 interface CheckoutFormValues {
   firstName: string;
@@ -28,10 +29,12 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
   register,
   errors,
 }) => {
+  const t = useTranslations('checkout.form');
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 text-zinc-400">
       <Input
-        label="First Name"
+        label={t('name')}
         name="firstName"
         register={register}
         errors={errors}
@@ -39,14 +42,14 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         required
       />
       <Input
-        label="Company Name"
+        label={t('company')}
         name="companyName"
         register={register}
         errors={errors}
         variant="rounded"
       />
       <Input
-        label="Street Address"
+        label={t('address')}
         name="streetAddress"
         register={register}
         errors={errors}
@@ -54,14 +57,14 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         required
       />
       <Input
-        label="Apartment, floor, etc. (optional)"
+        label={t('apartment')}
         name="apartment"
         register={register}
         errors={errors}
         variant="rounded"
       />
       <Input
-        label="Town/City"
+        label={t('city')}
         name="city"
         register={register}
         errors={errors}
@@ -69,7 +72,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         required
       />
       <Input
-        label="Phone Number"
+        label={t('phone')}
         name="phoneNumber"
         register={register}
         errors={errors}
@@ -77,7 +80,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         required
       />
       <Input
-        label="Email Address"
+        label={t('email')}
         name="email"
         register={register}
         errors={errors}
@@ -91,7 +94,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
           className="mr-4 h-6 w-6 border-[1.5px] border-zinc-300 rounded-sm"
         />
         <label htmlFor="saveInfo" className="text-black">
-          Save this information for faster check-out next time
+          {t('save')}
         </label>
       </div>
     </form>

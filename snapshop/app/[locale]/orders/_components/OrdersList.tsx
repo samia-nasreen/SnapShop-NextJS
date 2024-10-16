@@ -4,31 +4,33 @@ import { useAppSelector } from '@/lib/hooks';
 import formatDate from '@/utils/formatDate';
 import Link from 'next/link';
 import { Order } from '@/lib/features/orders/ordersSlice';
+import { useTranslations } from 'next-intl';
 
 const OrdersList = ({ locale }: { locale: string }) => {
   const orders = useAppSelector((state) => state.orders.orders);
+  const t = useTranslations('orders');
 
   return (
     <div className="container min-h-screen mx-auto px-4 py-8">
-      <h1 className="ml-2 text-xl font-semibold mb-4">My Orders</h1>
+      <h1 className="ml-2 text-xl font-semibold mb-4">{t('heading')}</h1>
       <div className="overflow-x-auto">
         <table className="w-full px-2 table-auto border-separate border-spacing-y-4">
           <thead>
             <tr className="bg-gray-200 text-center rounded shadow-[0px_0px_8px_2px_rgba(0,0,0,0.03)]">
               <th className="px-6 py-3 text-sm font-medium text-gray-500 uppercase">
-                ID
+                {t('id')}
               </th>
               <th className="px-6 py-3 text-sm font-medium text-gray-500 uppercase">
-                Date
+                {t('date')}
               </th>
               <th className="px-6 py-3 text-sm font-medium text-gray-500 uppercase">
-                No. of Items
+                {t('noOfItems')}
               </th>
               <th className="px-6 py-3 text-sm font-medium text-gray-500 uppercase">
-                Total Price
+                {t('total')}
               </th>
               <th className="px-6 py-3 text-sm font-medium text-gray-500 uppercase">
-                Details
+                {t('details')}
               </th>
             </tr>
           </thead>
@@ -36,7 +38,7 @@ const OrdersList = ({ locale }: { locale: string }) => {
             {orders.length === 0 ? (
               <tr>
                 <td colSpan={5} className="text-center py-6">
-                  No orders have been placed yet.
+                  {t('emptyMessage')}
                 </td>
               </tr>
             ) : (
@@ -51,10 +53,10 @@ const OrdersList = ({ locale }: { locale: string }) => {
                   <td className="px-6 py-4">${order.totalPrice.toFixed(2)}</td>
                   <td className="px-6 py-4">
                     <Link
-                      href={`${locale}/orders/${order.id}`}
+                      href={`/${locale}/orders/${order.id}`}
                       className="text-blue-500 hover:underline"
                     >
-                      View
+                      {t('view')}
                     </Link>
                   </td>
                 </tr>

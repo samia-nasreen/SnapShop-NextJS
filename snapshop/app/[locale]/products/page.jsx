@@ -1,7 +1,7 @@
 import ProductsGrid from '@/components/UI/ProductsGrid';
 import { notFound } from 'next/navigation';
 
-export default async function AllProductsPage() {
+export default async function AllProductsPage({ params }) {
   let products = [];
   let error = null;
 
@@ -32,10 +32,14 @@ export default async function AllProductsPage() {
     notFound();
   }
 
+  const { locale } = params;
+
   return (
     <div className="max-w-7xl mx-auto pt-4 md:pt-8 pb-20 md:pb-28 px-8">
       <h1 className="text-2xl font-semibold text-gray-900 mb-4 md:mb-8">
-        All Products
+        {locale === 'en' && 'All Products'}
+        {locale === 'fr' && 'Tous les produits'}
+        {locale === 'es' && 'Todos los Productos'}
       </h1>
       {error && <p className="text-red-500">Error occurred: {error}</p>}
       {!error && <ProductsGrid products={products} />}

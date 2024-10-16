@@ -9,6 +9,7 @@ import Button from '@/components/UI/Button';
 import Input from '@/components/UI/Input';
 import { toast } from 'react-toastify';
 import { signUp } from '@/actions';
+import { useTranslations } from 'next-intl';
 
 interface SignUpFormValues {
   email: string;
@@ -28,6 +29,7 @@ const SignUpForm: React.FC = () => {
   } = useForm<SignUpFormValues>({
     resolver: yupResolver(signUpSchema),
   });
+  const t = useTranslations('signUp.form');
 
   const onSubmit: SubmitHandler<SignUpFormValues> = async (data) => {
     const formData = new FormData();
@@ -50,7 +52,7 @@ const SignUpForm: React.FC = () => {
         register={register}
         errors={errors}
         type="email"
-        placeholder="Email"
+        placeholder={t('email')}
         variant="line"
       />
       <Input
@@ -58,7 +60,7 @@ const SignUpForm: React.FC = () => {
         register={register}
         errors={errors}
         type="text"
-        placeholder="Username"
+        placeholder={t('username')}
         variant="line"
       />
       <Input
@@ -66,7 +68,7 @@ const SignUpForm: React.FC = () => {
         register={register}
         errors={errors}
         type="password"
-        placeholder="Password"
+        placeholder={t('password')}
         variant="line"
       />
       <Input
@@ -74,7 +76,7 @@ const SignUpForm: React.FC = () => {
         register={register}
         errors={errors}
         type="text"
-        placeholder="Name"
+        placeholder={t('name')}
         variant="line"
       />
       <Input
@@ -82,7 +84,7 @@ const SignUpForm: React.FC = () => {
         register={register}
         errors={errors}
         type="text"
-        placeholder="Address"
+        placeholder={t('address')}
         variant="line"
       />
       <Input
@@ -90,11 +92,11 @@ const SignUpForm: React.FC = () => {
         register={register}
         errors={errors}
         type="text"
-        placeholder="Phone"
+        placeholder={t('phone')}
         variant="line"
       />
       <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
-        <Button text="Create Account" fontSize="base" type="submit" />
+        <Button text={t('createAccount')} fontSize="base" type="submit" />
         <GoogleSignUpButton />
       </div>
       <LoginLink />

@@ -186,5 +186,138 @@
         "description": "Vente annuelle brute sur notre site"
       }
     }
+  },
+  "signUp": {
+    "heading": "Créer un compte",
+    "subheading": "Entrez vos détails ci-dessous",
+    "form": {
+      "email": "Email",
+      "username": "Nom d'utilisateur",
+      "password": "Mot de passe",
+      "name": "Nom",
+      "address": "Adresse",
+      "phone": "Téléphone",
+      "createAccount": "Créer un compte"
+    },
+    "loginLink": {
+      "text": "Vous avez déjà un compte ?",
+      "link": "Connectez-vous"
+    },
+    "googleSignUp": { "text": "Inscrivez-vous avec Google" }
+  },
+  "login": {
+    "heading": "Connectez-vous à SnapShop",
+    "subheading": "Entrez vos détails ci-dessous",
+    "form": {
+      "username": "Nom d'utilisateur",
+      "password": "Mot de passe",
+      "button": "Connexion"
+    },
+    "forgotPassword": {
+      "text": "Mot de passe oublié ?"
+    }
+  },
+  "wishlist": {
+    "heading": "Liste de souhaits",
+    "emptyMessage": "Votre liste de souhaits est vide",
+    "moveToCart": "Tout déplacer au panier",
+    "justForYou": "Juste pour vous",
+    "seeAll": "Voir tout"
+  },
+  "cart": {
+    "empty": {
+      "message": "Votre panier est vide"
+    },
+    "tableHeader": {
+      "product": "Produit",
+      "price": "Prix",
+      "quantity": "Quantité",
+      "subtotal": "Sous-total"
+    },
+    "actions": {
+      "return": "Retour à la boutique",
+      "clear": "Vider le panier"
+    },
+    "total": {
+      "cartTotal": "Total du panier",
+      "subtotal": "Sous-total",
+      "shipping": "Livraison",
+      "total": "Total",
+      "proceed": "Passer à la caisse"
+    },
+    "coupon": {
+      "placeholder": "Code promo",
+      "apply": "Appliquer le coupon"
+    }
+  },
+  "checkout": {
+    "heading": {
+      "title": "Détails de facturation"
+    },
+    "form": {
+      "name": "Prénom",
+      "company": "Nom de l'entreprise",
+      "address": "Adresse",
+      "apartment": "Appartement, étage, etc. (facultatif)",
+      "city": "Ville",
+      "phone": "Numéro de téléphone",
+      "email": "Adresse e-mail",
+      "save": "Enregistrer ces informations pour un paiement plus rapide la prochaine fois"
+    },
+    "cartSummary": {
+      "subtotal": "Sous-total",
+      "shipping": "Expédition",
+      "total": "Total"
+    },
+    "placeOrder": {
+      "bank": "Banque",
+      "cod": "Paiement à la livraison",
+      "coupon": "Code promo",
+      "apply": "Appliquer le coupon",
+      "placeOrder": "Passer la commande"
+    }
+  },
+  "orders": {
+    "heading": "Mes commandes",
+    "id": "ID",
+    "date": "Date",
+    "noOfItems": "Nombre d'articles",
+    "total": "Prix total",
+    "details": "Détails",
+    "view": "Voir",
+    "emptyMessage": "Aucune commande n'a encore été passée."
+  },
+  "order": {
+    "orderId": "ID de commande",
+    "date": "Date",
+    "total": "Prix total",
+    "items": "Articles",
+    "quantity": "Quantité",
+    "print": "Imprimer la facture",
+    "notes": "Notes supplémentaires",
+    "desc": "Merci pour votre commande ! Si vous avez des questions, n'hésitez pas à contacter notre équipe de support."
+  },
+  "profile": {
+    "editYourProfile": "Modifier votre profil",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "email": "Email",
+    "address": "Adresse",
+    "passwordChanges": "Changements de mot de passe",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "confirmNewPassword": "Confirmer le nouveau mot de passe",
+    "saveChanges": "Sauvegarder les modifications",
+    "cancel": "Annuler"
+  },
+  "profileOptions": {
+    "manageMyAccount": "Gérer mon compte",
+    "myProfile": "Mon profil",
+    "addressBook": "Carnet d'adresses",
+    "myPaymentOptions": "Mes options de paiement",
+    "myOrders": "Mes commandes",
+    "myReturns": "Mes retours",
+    "myCancellations": "Mes annulations",
+    "myWishList": "Ma liste de souhaits"
   }
 }
