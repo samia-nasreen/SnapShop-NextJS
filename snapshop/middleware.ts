@@ -4,7 +4,7 @@ import { handleAuthMiddleware } from '@/middlewares/authMiddleware';
 import { NextFetchEvent, NextRequest } from 'next/server';
 
 export const config = {
-  matcher: ['/', '/(fr|en|es)/:path*', '/:locale/checkout'],
+  matcher: ['/((?!api|_next|.*\\..*).*)'],
 };
 
 export function middleware(req: NextRequest, event: NextFetchEvent) {

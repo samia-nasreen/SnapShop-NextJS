@@ -13,6 +13,7 @@ const CartTotal: React.FC<CartTotalProps> = ({
   isCartEmpty,
   locale,
 }) => {
+  console.log('locale', locale);
   return (
     <div className="w-full md:w-1/2 flex justify-end">
       <div className="border-[1.5px] border-gray-700 px-4 sm:px-6 py-6 sm:py-8 rounded shadow-md w-full sm:w-5/6">

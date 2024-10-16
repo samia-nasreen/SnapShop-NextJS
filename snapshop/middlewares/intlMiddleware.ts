@@ -5,6 +5,7 @@ const handleIntlMiddleware = createMiddleware({
   locales: ['en', 'fr', 'es'],
   defaultLocale: 'en',
   localePrefix: 'as-needed',
+  localeDetection: false,
 });
 
 export const handleLangMiddleware: MiddlewareFactory =
