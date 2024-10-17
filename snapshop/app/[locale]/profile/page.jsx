@@ -4,11 +4,9 @@ import ProfileForm from '@/app/[locale]/profile/_components/ProfileForm';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import capitalizeFirstLetter from '@/utils/capitalizeFirstLetter';
 import { jwtDecode } from 'jwt-decode';
-import { useTranslations } from 'next-intl';
 
 export default async function ProfilePage() {
   const cookieStore = cookies();
-  const t = useTranslations('profile');
   const token = cookieStore.get('authToken')?.value;
   const decodedToken = jwtDecode(token);
   const userId = decodedToken?.sub ? parseInt(decodedToken.sub, 10) : null;
@@ -40,7 +38,7 @@ export default async function ProfilePage() {
         <div className="flex justify-between">
           <Breadcrumb parts={['Home', 'My Account']} className="ml-2" />
           <div className="text-sm text-gray-500 py-6">
-            <span className="mr-1">{t('welcome')}!</span>
+            <span className="mr-1">Welcome!</span>
             <span className="text-red-500">
               {capitalizeFirstLetter(userData.name.firstname)}{' '}
               {capitalizeFirstLetter(userData.name.lastname)}
