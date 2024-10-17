@@ -4,7 +4,7 @@ import Breadcrumb from '@/components/UI/Breadcrumb';
 import { notFound } from 'next/navigation';
 
 const ProductDetailPage = async ({ params }) => {
-  const { id } = params;
+  const { id, locale } = params;
 
   let product = null;
   let error = null;
@@ -52,7 +52,7 @@ const ProductDetailPage = async ({ params }) => {
       {product && (
         <>
           <ProductDetail product={product} />
-          <RelatedItems category={product.category} />
+          <RelatedItems category={product.category} locale={locale} />
         </>
       )}
     </div>

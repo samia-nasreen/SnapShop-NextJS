@@ -3,6 +3,7 @@ import RedSubHeading from '@/components/UI/RedSubHeading';
 
 interface RelatedItemsProps {
   category: string;
+  locale: string;
 }
 
 interface Rating {
@@ -54,13 +55,22 @@ const fetchProducts = async (category: string) => {
   }
 };
 
-const RelatedItems: React.FC<RelatedItemsProps> = async ({ category }) => {
+const RelatedItems: React.FC<RelatedItemsProps> = async ({
+  category,
+  locale,
+}) => {
   const relatedProducts = await fetchProducts(category);
+  const subHeading =
+    locale === 'es'
+      ? 'Artículos relacionados'
+      : locale === 'fr'
+      ? 'Articles associés'
+      : 'Related Items';
 
   return (
     <div className="container mx-auto mt-16 mb-24 p-5">
       <div className="flex justify-between items-center mb-5">
-        <RedSubHeading subHeading="Related Items" />
+        <RedSubHeading subHeading={subHeading} />
       </div>
       {relatedProducts && <ProductsGrid products={relatedProducts || []} />}
     </div>

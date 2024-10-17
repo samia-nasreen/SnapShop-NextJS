@@ -20,9 +20,11 @@ const rootReducer = combineReducers({
 });
 
 const makeConfiguredStore = () => {
-  configureStore({
+  const store: any = configureStore({
     reducer: rootReducer,
   });
+  store.__persistor = null;
+  return store;
 };
 
 export const makeStore = () => {

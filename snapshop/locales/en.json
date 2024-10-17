@@ -320,5 +320,24 @@
     "myReturns": "My Returns",
     "myCancellations": "My Cancellations",
     "myWishlist": "My WishList"
+  },
+  "productDetails": {
+    "relatedItems": "Related Items",
+    "color": "Color",
+    "size": "Size",
+    "reviews": "Reviews",
+    "instock": "In Stock",
+    "add": "Add",
+    "deliveryDetails": {
+      "freeDelivery": {
+        "title": "Free Delivery",
+        "description": "Enter your postal code for Delivery Availability"
+      },
+      "returnDelivery": {
+        "title": "Return Delivery",
+        "description": "Free 30 Days Delivery Returns.",
+        "details": "Details"
+      }
+    }
   }
 }

@@ -4,6 +4,7 @@ import { useAppDispatch } from '@/lib/hooks';
 import { useState } from 'react';
 import { cartActions } from '@/lib/features/cart/cartSlice';
 import Button from '@/components/UI/Button';
+import { useTranslations } from 'next-intl';
 
 interface Product {
   id: number;
@@ -25,6 +26,7 @@ interface QuantitySelectorProps {
 const QuantitySelector: React.FC<QuantitySelectorProps> = ({ product }) => {
   const [quantity, setQuantity] = useState<number>(1);
   const dispatch = useAppDispatch();
+  const t = useTranslations('productDetails');
 
   const handleAddToCart = () => {
     const productData = {
@@ -67,7 +69,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({ product }) => {
           +
         </button>
       </div>
-      <Button text="Add" onClick={handleAddToCart} />
+      <Button text={t('add')} onClick={handleAddToCart} />
     </div>
   );
 };

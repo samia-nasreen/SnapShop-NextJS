@@ -319,5 +319,24 @@
     "myReturns": "Mes retours",
     "myCancellations": "Mes annulations",
     "myWishlist": "Ma liste de souhaits"
+  },
+  "productDetails": {
+    "relatedItems": "Articles associés",
+    "color": "Couleur",
+    "size": "Taille",
+    "reviews": "Avis",
+    "instock": "En stock",
+    "add": "Ajouter",
+    "deliveryDetails": {
+      "freeDelivery": {
+        "title": "Livraison gratuite",
+        "description": "Entrez votre code postal pour la disponibilité de la livraison"
+      },
+      "returnDelivery": {
+        "title": "Retour de livraison",
+        "description": "Retours de livraison gratuits sous 30 jours.",
+        "details": "Détails"
+      }
+    }
   }
 }

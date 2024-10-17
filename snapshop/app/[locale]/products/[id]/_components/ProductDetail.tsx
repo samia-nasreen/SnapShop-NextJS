@@ -1,17 +1,20 @@
-import DeliveryDetails from "./DeliveryDetails";
-import Rating from "@/components/UI/Rating";
-import WishListIcon from "@/components/UI/WishlistIcon";
-import Colors from "./Colors";
-import Sizes from "./Sizes";
-import ImageGrid from "./ImageGrid";
-import QuantitySelector from "./QuantitySelector";
-import { Product } from "@/types/product";
+import DeliveryDetails from './DeliveryDetails';
+import Rating from '@/components/UI/Rating';
+import WishListIcon from '@/components/UI/WishlistIcon';
+import Colors from './Colors';
+import Sizes from './Sizes';
+import ImageGrid from './ImageGrid';
+import QuantitySelector from './QuantitySelector';
+import { Product } from '@/types/product';
+import { useTranslations } from 'next-intl';
 
 interface ProductDetailProps {
   product: Product;
 }
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
+  const t = useTranslations('productDetails');
+
   return (
     <div className="flex flex-col lg:flex-row lg:space-x-8 px-4 max-w-7xl mx-auto mb-20">
       <ImageGrid image={product.image} title={product.name} />
@@ -22,10 +25,10 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
         <div className="flex items-center h-4">
           <Rating rating={product.rating} size="5" />
           <span className="ml-2 text-gray-500">
-            ({product.ratingCount} Reviews)
+            ({product.ratingCount} {t('reviews')})
           </span>
           <span className="text-gray-500 px-4">|</span>
-          <span className="text-green-500">In Stock</span>
+          <span className="text-green-500">{t('instock')}</span>
         </div>
         <div className="text-xl md:text-[28px] font-medium text-gray-900">
           ${product.price}

@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 const Sizes = () => {
+  const t = useTranslations('productDetails');
   const [selectedSize, setSelectedSize] = useState('M');
 
   const handleSizeChange = (size: string) => {
@@ -11,7 +13,7 @@ const Sizes = () => {
 
   return (
     <div className="flex space-x-4 items-center space-y-2">
-      <span className="md:text-lg text-gray-900 mt-2 mr-2">Size:</span>
+      <span className="md:text-lg text-gray-900 mt-2 mr-2">{t('size')}:</span>
       {['XS', 'S', 'M', 'L', 'XL'].map((size) => (
         <button
           key={size}
