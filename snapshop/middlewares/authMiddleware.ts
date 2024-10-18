@@ -19,7 +19,6 @@ export const handleAuthMiddleware: MiddlewareFactory =
 
       if (!token) {
         const locale = req.nextUrl.pathname.split('/')[1] || 'en';
-        console.log('Auth middleware running with locale', locale);
         const url = new URL(`/${locale}/login`, req.url);
         return NextResponse.redirect(url);
       }

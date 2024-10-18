@@ -25,6 +25,7 @@ const LoginForm: React.FC = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<LoginFormValues>({
     resolver: yupResolver(loginSchema),
@@ -46,6 +47,7 @@ const LoginForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
     setIsLoading(true);
+    console.log(data);
 
     const formData = new FormData();
     formData.append('username', data.username);
@@ -82,6 +84,9 @@ const LoginForm: React.FC = () => {
         errors={errors}
         type="text"
         placeholder={t('username')}
+        onChange={(e) => {
+          setValue('username', e.target.value);
+        }}
         variant="line"
       />
       <Input
@@ -90,6 +95,9 @@ const LoginForm: React.FC = () => {
         errors={errors}
         type="password"
         placeholder={t('password')}
+        onChange={(e) => {
+          setValue('password', e.target.value);
+        }}
         variant="line"
       />
       {isError && (

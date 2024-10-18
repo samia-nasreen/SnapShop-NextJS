@@ -35,6 +35,7 @@ const Checkout = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(checkoutSchema),
@@ -80,6 +81,7 @@ const Checkout = () => {
           onSubmit={onSubmit}
           register={register}
           errors={errors}
+          setValue={setValue}
         />
       </div>
       <CartSummary

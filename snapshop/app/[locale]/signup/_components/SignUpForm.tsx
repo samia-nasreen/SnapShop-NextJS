@@ -24,6 +24,7 @@ const SignUpForm: React.FC = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
     reset,
   } = useForm<SignUpFormValues>({
@@ -53,6 +54,9 @@ const SignUpForm: React.FC = () => {
         errors={errors}
         type="email"
         placeholder={t('email')}
+        onChange={(e) => {
+          setValue('email', e.target.value);
+        }}
         variant="line"
       />
       <Input
@@ -61,6 +65,9 @@ const SignUpForm: React.FC = () => {
         errors={errors}
         type="text"
         placeholder={t('username')}
+        onChange={(e) => {
+          setValue('username', e.target.value);
+        }}
         variant="line"
       />
       <Input
@@ -69,6 +76,9 @@ const SignUpForm: React.FC = () => {
         errors={errors}
         type="password"
         placeholder={t('password')}
+        onChange={(e) => {
+          setValue('password', e.target.value);
+        }}
         variant="line"
       />
       <Input
@@ -77,6 +87,9 @@ const SignUpForm: React.FC = () => {
         errors={errors}
         type="text"
         placeholder={t('name')}
+        onChange={(e) => {
+          setValue('name', e.target.value);
+        }}
         variant="line"
       />
       <Input
@@ -85,6 +98,9 @@ const SignUpForm: React.FC = () => {
         errors={errors}
         type="text"
         placeholder={t('address')}
+        onChange={(e) => {
+          setValue('address', e.target.value);
+        }}
         variant="line"
       />
       <Input
@@ -93,6 +109,9 @@ const SignUpForm: React.FC = () => {
         errors={errors}
         type="text"
         placeholder={t('phone')}
+        onChange={(e) => {
+          setValue('phone', e.target.value);
+        }}
         variant="line"
       />
       <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">

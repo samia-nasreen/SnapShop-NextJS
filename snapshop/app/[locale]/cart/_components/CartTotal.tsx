@@ -15,7 +15,6 @@ const CartTotal: React.FC<CartTotalProps> = ({
   locale,
 }) => {
   const t = useTranslations('cart.total');
-  console.log('I am cart total with locale', locale);
 
   return (
     <div className="w-full md:w-1/2 flex justify-end">

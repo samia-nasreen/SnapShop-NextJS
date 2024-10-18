@@ -21,6 +21,7 @@ const ContactForm: React.FC = () => {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<ContactFormValues>({
     resolver: yupResolver(contactSchema),
@@ -54,6 +55,9 @@ const ContactForm: React.FC = () => {
             placeholder={t('name')}
             register={register}
             errors={errors}
+            onChange={(e) => {
+              setValue('name', e.target.value);
+            }}
             variant="rounded"
             className="flex-1"
             required
@@ -63,6 +67,9 @@ const ContactForm: React.FC = () => {
             placeholder={t('email')}
             register={register}
             errors={errors}
+            onChange={(e) => {
+              setValue('email', e.target.value);
+            }}
             variant="rounded"
             className="flex-1"
             required
@@ -73,6 +80,9 @@ const ContactForm: React.FC = () => {
             placeholder={t('phone')}
             register={register}
             errors={errors}
+            onChange={(e) => {
+              setValue('phone', e.target.value);
+            }}
             variant="rounded"
             className="flex-1"
             required
@@ -83,6 +93,9 @@ const ContactForm: React.FC = () => {
           rows={8}
           className="w-full p-3 border border-white bg-stone-100 rounded"
           {...register('message', { required: true })}
+          onChange={(e) => {
+            setValue('message', e.target.value);
+          }}
         />
         {errors.message && (
           <p className="text-red-500 text-sm">Message is required</p>

@@ -20,6 +20,7 @@ interface CheckoutFormProps {
   handleSubmit: UseFormHandleSubmit<CheckoutFormValues>;
   onSubmit: (data: CheckoutFormValues) => void;
   register: UseFormRegister<CheckoutFormValues>;
+  setValue: (name: string, value: string) => void;
   errors: FieldErrors<CheckoutFormValues>;
 }
 
@@ -27,6 +28,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
   handleSubmit,
   onSubmit,
   register,
+  setValue,
   errors,
 }) => {
   const t = useTranslations('checkout.form');
@@ -38,6 +40,9 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         name="firstName"
         register={register}
         errors={errors}
+        onChange={(e) => {
+          setValue('firstName', e.target.value);
+        }}
         variant="rounded"
         required
       />
@@ -46,6 +51,9 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         name="companyName"
         register={register}
         errors={errors}
+        onChange={(e) => {
+          setValue('companyName', e.target.value);
+        }}
         variant="rounded"
       />
       <Input
@@ -53,6 +61,9 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         name="streetAddress"
         register={register}
         errors={errors}
+        onChange={(e) => {
+          setValue('streetAddress', e.target.value);
+        }}
         variant="rounded"
         required
       />
@@ -61,6 +72,9 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         name="apartment"
         register={register}
         errors={errors}
+        onChange={(e) => {
+          setValue('apartment', e.target.value);
+        }}
         variant="rounded"
       />
       <Input
@@ -68,6 +82,9 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         name="city"
         register={register}
         errors={errors}
+        onChange={(e) => {
+          setValue('city', e.target.value);
+        }}
         variant="rounded"
         required
       />
@@ -76,6 +93,9 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         name="phoneNumber"
         register={register}
         errors={errors}
+        onChange={(e) => {
+          setValue('phoneNumber', e.target.value);
+        }}
         variant="rounded"
         required
       />
@@ -84,6 +104,9 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         name="email"
         register={register}
         errors={errors}
+        onChange={(e) => {
+          setValue('email', e.target.value);
+        }}
         variant="rounded"
         required
       />
