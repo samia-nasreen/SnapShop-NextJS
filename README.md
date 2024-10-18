@@ -12,6 +12,7 @@
 - **Protected Routes**: Only logged-in users can place orders or access My Orders.
 - **Mock Checkout**: Simulate checkout, with order logging.
 - **My Orders & Order Details**: View past orders and order-specific details.
+- **Multilanguage Support**: Available in multiple languages (e.g., English, French, Spanish).
 
 ## Tech Stack
 
